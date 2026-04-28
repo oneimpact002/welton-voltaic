@@ -22,7 +22,7 @@ const C = {
   accentMuted: "#FEFBE8",
 };
 
-const DARK_SLOTS   = new Set([0, 1, 2, 3, 4, 5, 6, 9]);
+const DARK_SLOTS   = new Set([0, 1, 2, 3, 4, 5, 6, 8, 9]);
 const ORANGE_SLOTS = new Set([7]);
 
 const bg  = (s: number) => ORANGE_SLOTS.has(s) ? C.accent : DARK_SLOTS.has(s) ? C.navy : s === 3 ? C.offwhite : s === 5 ? C.accentMuted : C.white;
@@ -76,20 +76,20 @@ function FAQAccordion() {
   return (
     <div>
       {faqs.map((item, i) => (
-        <div key={i} style={{ borderBottom: `1px solid ${C.black}15` }}>
+        <div key={i} style={{ borderBottom: `1px solid ${C.white}15` }}>
           <button
             className="w-full flex items-center justify-between py-5 text-left"
             onClick={() => setOpen(open === i ? null : i)}
           >
-            <span style={{ fontSize: 15, fontWeight: 600, color: C.black, lineHeight: 1.4 }} className="pr-4">
+            <span style={{ fontSize: 15, fontWeight: 600, color: C.white, lineHeight: 1.4 }} className="pr-4">
               {item.q}
             </span>
             {open === i
               ? <ChevronUp size={15} style={{ color: C.accent, flexShrink: 0 }} />
-              : <ChevronDown size={15} style={{ color: C.black, opacity: 0.3, flexShrink: 0 }} />}
+              : <ChevronDown size={15} style={{ color: C.white, opacity: 0.3, flexShrink: 0 }} />}
           </button>
           {open === i && (
-            <p style={{ fontSize: 15, fontWeight: 300, color: C.black, opacity: 0.55, lineHeight: 1.7, paddingBottom: 20 }}>
+            <p style={{ fontSize: 15, fontWeight: 300, color: C.white, opacity: 0.55, lineHeight: 1.7, paddingBottom: 20 }}>
               {item.a}
             </p>
           )}
@@ -617,7 +617,7 @@ const Index = () => {
 
       {/* ── FAQ ── */}
       <section id="faq" className="relative" style={{ background: bg(8), padding: "112px 24px" }}>
-        <SectionBadge n="09" label="FAQ" />
+        <SectionBadge n="09" label="FAQ" light />
         <div className={`${inner} grid grid-cols-1 lg:grid-cols-2 gap-20`}>
           <RevealOnScroll delay={0}>
             <div>
