@@ -413,22 +413,22 @@ const Index = () => {
       </section>
 
       {/* ── CTA MID ── */}
-      <section style={{ background: C.accent, padding: "56px 24px" }}>
+      <section style={{ background: "#0f1a2e", padding: "56px 24px" }}>
         <RevealOnScroll>
           <div className={`${inner} flex flex-col md:flex-row items-center justify-between gap-8`}>
             <div>
-              <p style={{ fontSize: 11, letterSpacing: "0.2em", color: C.black, opacity: 0.5, textTransform: "uppercase", marginBottom: 10 }}>
+              <p style={{ fontSize: 11, letterSpacing: "0.2em", color: C.white, opacity: 0.5, textTransform: "uppercase", marginBottom: 10 }}>
                 Próximo passo
               </p>
               <h2 style={{
                 fontFamily: "'Encode Sans Expanded', sans-serif",
-                fontSize: isMobile ? 22 : 28, fontWeight: 800, color: C.black, lineHeight: 1.2,
+                fontSize: isMobile ? 22 : 28, fontWeight: 800, color: C.white, lineHeight: 1.2,
               }}>
                 Descubra quanto sua empresa pode economizar.
               </h2>
             </div>
             <ShimmerButton
-              style={{ fontSize: 12, padding: "15px 32px", background: C.navy, color: C.white, flexShrink: 0 }}
+              style={{ fontSize: 12, padding: "15px 32px", background: C.accent, color: C.black, flexShrink: 0 }}
               onClick={() => navigate("/contato")}
             >
               SOLICITAR ANÁLISE GRATUITA
