@@ -128,7 +128,7 @@ const Contato = () => {
           <img
             src="/logo-voltaic.svg"
             alt="Voltaic"
-            style={{ height: 32, filter: "brightness(0) invert(1)" }}
+            style={{ width: 135, height: 55, objectFit: "contain", filter: "brightness(0) invert(1)" }}
           />
 
           <div style={{ width: 80 }} />

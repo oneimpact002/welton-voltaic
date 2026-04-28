@@ -141,7 +141,7 @@ const Index = () => {
             src="/logo-voltaic.svg"
             alt="Voltaic"
             style={{
-              height: 36,
+              width: 135, height: 55, objectFit: "contain",
               filter: navOnHero ? "brightness(0) invert(1)" : "none",
               transition: "filter 0.4s ease",
             }}
@@ -680,7 +680,7 @@ const Index = () => {
                 <img
                   src="/logo-voltaic.svg"
                   alt="Voltaic"
-                  style={{ height: 32, filter: "brightness(0) invert(1)" }}
+                  style={{ width: 135, height: 55, objectFit: "contain", filter: "brightness(0) invert(1)" }}
                 />
               </div>
               <p style={{ fontSize: 14, color: C.white, opacity: 0.28, lineHeight: 1.7, maxWidth: 300 }}>
