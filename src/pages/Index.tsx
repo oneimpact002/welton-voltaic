@@ -22,7 +22,7 @@ const C = {
   accentMuted: "#FEFBE8",
 };
 
-const DARK_SLOTS   = new Set([0, 1, 2, 3, 6, 9]);
+const DARK_SLOTS   = new Set([0, 1, 2, 3, 4, 5, 6, 9]);
 const ORANGE_SLOTS = new Set([7]);
 
 const bg  = (s: number) => ORANGE_SLOTS.has(s) ? C.accent : DARK_SLOTS.has(s) ? C.navy : s === 3 ? C.offwhite : s === 5 ? C.accentMuted : C.white;
@@ -412,7 +412,7 @@ const Index = () => {
 
       {/* ── DIFERENCIAIS ── */}
       <section id="diferenciais" className="relative" style={{ background: bg(4), padding: "112px 24px" }}>
-        <SectionBadge n="05" label="Diferenciais" />
+        <SectionBadge n="05" label="Diferenciais" light />
         <div className={inner}>
           <RevealOnScroll>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-end" style={{ marginBottom: 56 }}>
@@ -468,10 +468,10 @@ const Index = () => {
                   cursor: "default",
                 }}>
                   <div style={{ marginBottom: 20, color: C.accent }}>{s.icon}</div>
-                  <h3 style={{ fontSize: 18, fontWeight: 700, color: fg(4), marginBottom: 12 }}>
+                  <h3 style={{ fontSize: 18, fontWeight: 700, color: C.black, marginBottom: 12 }}>
                     {s.title}
                   </h3>
-                  <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.7, color: fg(4), opacity: 0.5 }}>
+                  <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.7, color: C.black, opacity: 0.5 }}>
                     {s.desc}
                   </p>
                 </div>
@@ -483,7 +483,7 @@ const Index = () => {
 
       {/* ── IMPACTO ── */}
       <section className="relative" style={{ background: bg(5), padding: "112px 24px" }}>
-        <SectionBadge n="06" label="Impacto" />
+        <SectionBadge n="06" label="Impacto" light />
         <div className={inner}>
           <RevealOnScroll>
             <div style={{ marginBottom: 64, maxWidth: 640 }}>
@@ -492,9 +492,9 @@ const Index = () => {
               </p>
               <h2 style={{
                 fontFamily: "'Encode Sans Expanded', sans-serif",
-                fontSize: isMobile ? 26 : 38, fontWeight: 800, color: C.black, lineHeight: 1.15,
+                fontSize: isMobile ? 26 : 38, fontWeight: 800, color: fg(5), lineHeight: 1.15,
               }}>
-                <WordReveal text="Energia deixa de ser custo. Passa a ser investimento." style={{ color: C.black }} />
+                <WordReveal text="Energia deixa de ser custo. Passa a ser investimento." style={{ color: fg(5) }} />
               </h2>
             </div>
           </RevealOnScroll>
@@ -516,11 +516,11 @@ const Index = () => {
                   borderRight: `1px solid ${C.accent}25`,
                 }}>
                   <div style={{ color: C.accent, marginBottom: 20 }}>{item.icon}</div>
-                  <p style={{ fontSize: 28, fontWeight: 800, color: C.black, lineHeight: 1, marginBottom: 8, fontFamily: "'Encode Sans Expanded', sans-serif" }}>
+                  <p style={{ fontSize: 28, fontWeight: 800, color: fg(5), lineHeight: 1, marginBottom: 8, fontFamily: "'Encode Sans Expanded', sans-serif" }}>
                     {item.value}
                   </p>
-                  <p style={{ fontSize: 13, fontWeight: 700, color: C.black, marginBottom: 8 }}>{item.label}</p>
-                  <p style={{ fontSize: 13, fontWeight: 300, color: C.black, opacity: 0.45, lineHeight: 1.6 }}>{item.desc}</p>
+                  <p style={{ fontSize: 13, fontWeight: 700, color: fg(5), marginBottom: 8 }}>{item.label}</p>
+                  <p style={{ fontSize: 13, fontWeight: 300, color: fg(5), opacity: 0.45, lineHeight: 1.6 }}>{item.desc}</p>
                 </div>
               </RevealOnScroll>
             ))}
