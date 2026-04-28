@@ -461,7 +461,7 @@ const Index = () => {
               },
             ].map((s, i) => (
               <RevealOnScroll key={i} delay={i * 0.1}>
-                <div style={{
+                <div className="card-hover" style={{
                   padding: 32, height: "100%", borderRadius: 10,
                   border: `1px solid ${bdr(4)}`,
                   backgroundColor: C.white,
