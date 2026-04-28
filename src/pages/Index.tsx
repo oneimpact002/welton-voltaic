@@ -135,16 +135,15 @@ const Index = () => {
         }}
       >
         <div className={`${inner} flex items-center justify-between py-4`}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <Zap size={16} style={{ color: C.accent }} />
-            <span style={{
-              fontSize: 13, fontWeight: 800, letterSpacing: "0.18em",
-              color: navFg, transition: "color 0.4s ease",
-              fontFamily: "'Encode Sans Expanded', sans-serif",
-            }}>
-              VOLTAIC
-            </span>
-          </div>
+          <img
+            src="/logo-voltaic.svg"
+            alt="Voltaic"
+            style={{
+              height: 36,
+              filter: navOnHero ? "brightness(0) invert(1)" : "none",
+              transition: "filter 0.4s ease",
+            }}
+          />
 
           <div className="hidden md:flex items-center gap-8">
             {[
@@ -688,11 +687,12 @@ const Index = () => {
         <div className={inner}>
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-10" style={{ marginBottom: 48 }}>
             <div className="lg:col-span-2">
-              <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
-                <Zap size={14} style={{ color: C.accentLight }} />
-                <span style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.18em", color: C.white, fontFamily: "'Encode Sans Expanded', sans-serif" }}>
-                  VOLTAIC
-                </span>
+              <div style={{ marginBottom: 16 }}>
+                <img
+                  src="/logo-voltaic.svg"
+                  alt="Voltaic"
+                  style={{ height: 32, filter: "brightness(0) invert(1)" }}
+                />
               </div>
               <p style={{ fontSize: 14, color: C.white, opacity: 0.28, lineHeight: 1.7, maxWidth: 300 }}>
                 Energia solar industrial com critério técnico, segurança no investimento e retorno comprovado.
