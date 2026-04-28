@@ -325,7 +325,7 @@ const Index = () => {
 
               {/* Tag flutuante — estatística */}
               <div style={{
-                position: "absolute", top: 24, left: 24,
+                position: "absolute", top: 324, left: 24,
                 backgroundColor: C.accent,
                 borderRadius: 10, padding: "16px 20px",
                 boxShadow: "0 8px 32px rgba(0,0,0,0.35)",
