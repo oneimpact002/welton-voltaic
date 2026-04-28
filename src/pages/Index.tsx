@@ -17,9 +17,9 @@ const C = {
   black:       "#111827",
   navy:        "#070B16",
   navyMid:     "#0f1a2e",
-  accent:      "#F97316",
-  accentLight: "#FDBA74",
-  accentMuted: "#FFF4EA",
+  accent:      "#F8D00F",
+  accentLight: "#FDE96A",
+  accentMuted: "#FEFBE8",
 };
 
 const DARK_SLOTS   = new Set([0, 1, 2, 3, 6, 9]);
@@ -171,7 +171,7 @@ const Index = () => {
           </div>
 
           <ShimmerButton
-            style={{ background: C.accent, color: "#fff" }}
+            style={{ background: C.accent, color: C.black }}
             onClick={() => scrollTo("contato")}
           >
             SOLICITAR ANÁLISE
@@ -235,7 +235,7 @@ const Index = () => {
 
             <div className="flex items-center gap-6 flex-wrap">
               <ShimmerButton
-                style={{ fontSize: 12, padding: "15px 30px", background: C.accent, color: "#fff" }}
+                style={{ fontSize: 12, padding: "15px 30px", background: C.accent, color: C.black }}
                 onClick={() => scrollTo("contato")}
               >
                 SOLICITAR ANÁLISE GRATUITA

@@ -6,7 +6,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "light" | "dark";
 }
 
-const ACCENT = "#F97316";
+const ACCENT = "#F8D00F";
 
 export default function ShimmerButton({ children, style, variant = "light", ...rest }: Props) {
   const base: CSSProperties = {
@@ -20,7 +20,7 @@ export default function ShimmerButton({ children, style, variant = "light", ...r
     border: "none",
     cursor: "pointer",
     background: variant === "dark" ? "#F8F8F8" : ACCENT,
-    color: variant === "dark" ? ACCENT : "#F8F8F8",
+    color: variant === "dark" ? ACCENT : "#111827",
     transition: "opacity 0.2s",
     fontFamily: "inherit",
     ...style,
