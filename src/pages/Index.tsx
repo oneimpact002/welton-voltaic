@@ -15,14 +15,14 @@ const C = {
   white:       "#FAFAF8",
   offwhite:    "#F4F3EF",
   black:       "#111827",
-  navy:        "#0D1B2A",
-  navyMid:     "#162436",
+  navy:        "#070B16",
+  navyMid:     "#0f1a2e",
   accent:      "#F97316",
   accentLight: "#FDBA74",
   accentMuted: "#FFF4EA",
 };
 
-const DARK_SLOTS   = new Set([0, 1, 6, 9]);
+const DARK_SLOTS   = new Set([0, 1, 2, 3, 6, 9]);
 const ORANGE_SLOTS = new Set([7]);
 
 const bg  = (s: number) => ORANGE_SLOTS.has(s) ? C.accent : DARK_SLOTS.has(s) ? C.navy : s === 3 ? C.offwhite : s === 5 ? C.accentMuted : C.white;
@@ -185,7 +185,7 @@ const Index = () => {
         id="inicio"
         className="relative overflow-hidden"
         style={{
-          background: `linear-gradient(135deg, ${C.navy} 0%, #1a2e42 100%)`,
+          background: `linear-gradient(135deg, ${C.navy} 0%, #0d1525 100%)`,
           minHeight: "92vh",
           display: "flex",
           alignItems: "center",
@@ -319,15 +319,16 @@ const Index = () => {
 
       {/* ── PROBLEMA ── */}
       <section className="relative" style={{ background: bg(2), padding: "112px 24px" }}>
-        <SectionBadge n="03" label="Problema" />
+        <SectionBadge n="03" label="Problema" light />
         <div className={`${inner} grid grid-cols-1 lg:grid-cols-2 gap-20 items-center`}>
           <RevealOnScroll delay={0}>
             <div style={{
               aspectRatio: "4/5", borderRadius: 8,
-              backgroundColor: C.accentMuted,
+              backgroundColor: C.navyMid,
               display: "flex", alignItems: "center", justifyContent: "center",
+              border: `1px solid ${C.white}08`,
             }}>
-              <span style={{ color: `${C.accent}40`, fontSize: 13 }}>Foto</span>
+              <span style={{ color: `${C.white}20`, fontSize: 13 }}>Foto</span>
             </div>
           </RevealOnScroll>
 
@@ -366,7 +367,7 @@ const Index = () => {
 
       {/* ── COMO FUNCIONA ── */}
       <section id="como-funciona" className="relative" style={{ background: bg(3), padding: "112px 24px" }}>
-        <SectionBadge n="04" label="Como Funciona" />
+        <SectionBadge n="04" label="Como Funciona" light />
         <div className={inner}>
           <RevealOnScroll>
             <div style={{ marginBottom: 64, maxWidth: 560 }}>
@@ -399,7 +400,7 @@ const Index = () => {
                   <div style={{
                     width: 44, height: 44, borderRadius: "50%",
                     border: `1px solid ${C.accent}50`,
-                    backgroundColor: C.offwhite,
+                    backgroundColor: C.navyMid,
                     display: "flex", alignItems: "center", justifyContent: "center",
                     marginBottom: 28, position: "relative", zIndex: 1,
                   }}>
