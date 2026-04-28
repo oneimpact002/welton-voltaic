@@ -313,13 +313,34 @@ const Index = () => {
         <SectionBadge n="03" label="Problema" light />
         <div className={`${inner} grid grid-cols-1 lg:grid-cols-2 gap-20 items-center`}>
           <RevealOnScroll delay={0}>
-            <div style={{
-              aspectRatio: "4/5", borderRadius: 8,
-              backgroundColor: C.navyMid,
-              display: "flex", alignItems: "center", justifyContent: "center",
-              border: `1px solid ${C.white}08`,
-            }}>
-              <span style={{ color: `${C.white}20`, fontSize: 13 }}>Foto</span>
+            <div style={{ position: "relative" }}>
+              <div style={{
+                aspectRatio: "4/5", borderRadius: 8,
+                backgroundColor: C.navyMid,
+                display: "flex", alignItems: "center", justifyContent: "center",
+                border: `1px solid ${C.white}08`,
+              }}>
+                <span style={{ color: `${C.white}20`, fontSize: 13 }}>Foto</span>
+              </div>
+
+              {/* Tag flutuante — estatística */}
+              <div style={{
+                position: "absolute", top: 24, left: 24,
+                backgroundColor: C.accent,
+                borderRadius: 10, padding: "16px 20px",
+                boxShadow: "0 8px 32px rgba(0,0,0,0.35)",
+                minWidth: 180,
+              }}>
+                <p style={{ fontSize: 11, fontWeight: 700, color: C.black, opacity: 0.55, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 6 }}>
+                  Energia desperdiçada
+                </p>
+                <p style={{ fontSize: 28, fontWeight: 800, color: C.black, lineHeight: 1, fontFamily: "'Encode Sans Expanded', sans-serif", marginBottom: 4 }}>
+                  até 40%
+                </p>
+                <p style={{ fontSize: 12, fontWeight: 300, color: C.black, opacity: 0.6, lineHeight: 1.4 }}>
+                  do faturamento vai para a conta de luz
+                </p>
+              </div>
             </div>
           </RevealOnScroll>
 
