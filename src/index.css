@@ -124,7 +124,7 @@ All colors MUST be HSL.
 }
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.10);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.40);
   border-color: #F8D00F !important;
 }
 

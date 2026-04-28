@@ -464,14 +464,14 @@ const Index = () => {
                 <div className="card-hover" style={{
                   padding: 32, height: "100%", borderRadius: 10,
                   border: `1px solid ${bdr(4)}`,
-                  backgroundColor: C.white,
+                  backgroundColor: "#0b101e",
                   cursor: "default",
                 }}>
                   <div style={{ marginBottom: 20, color: C.accent }}>{s.icon}</div>
-                  <h3 style={{ fontSize: 18, fontWeight: 700, color: C.black, marginBottom: 12 }}>
+                  <h3 style={{ fontSize: 18, fontWeight: 700, color: C.white, marginBottom: 12 }}>
                     {s.title}
                   </h3>
-                  <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.7, color: C.black, opacity: 0.5 }}>
+                  <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.7, color: C.white, opacity: 0.45 }}>
                     {s.desc}
                   </p>
                 </div>
