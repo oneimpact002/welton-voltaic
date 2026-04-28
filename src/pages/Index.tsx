@@ -205,7 +205,7 @@ const Index = () => {
           background: `radial-gradient(circle, ${C.accent}20 0%, transparent 70%)`,
         }} />
 
-        <div className={`${inner} relative w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-24`}>
+        <div className={`${inner} relative w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center pt-14 pb-24`}>
           <div>
             <div style={{
               display: "inline-flex", alignItems: "center", gap: 8,
