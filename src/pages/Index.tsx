@@ -324,7 +324,7 @@ const Index = () => {
               </div>
 
               {/* Tag flutuante — estatística */}
-              <div style={{
+              <div className="tag-enter" style={{
                 position: "absolute", top: 324, left: 24,
                 backgroundColor: "#0f1a2e",
                 borderRadius: 10, padding: "16px 20px",

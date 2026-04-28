@@ -128,6 +128,22 @@ All colors MUST be HSL.
   border-color: #F8D00F !important;
 }
 
+/* ── Floating tag entrance ──────────────────────────── */
+.tag-enter {
+  animation: tagEnter 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.4s;
+}
+@keyframes tagEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 /* ── ShimmerButton ──────────────────────────────────── */
 .shimmer-overlay {
   position: absolute;
