@@ -279,7 +279,7 @@ const Index = () => {
       </section>
 
       {/* ── FAIXA NÚMEROS ── */}
-      <section style={{ background: bg(1), padding: "56px 24px" }}>
+      <section style={{ background: bg(1), padding: "106px 24px 56px" }}>
         <SectionBadge n="02" label="Números" light />
         <RevealOnScroll>
           <div className={inner}>
