@@ -581,7 +581,7 @@ const Index = () => {
       </section>
 
       {/* ── CTA FINAL ── */}
-      <section className="relative" style={{ backgroundColor: C.accent, padding: "100px 24px", overflow: "hidden" }}>
+      <section className="relative" style={{ backgroundColor: "#0f1a2e", padding: "100px 24px", overflow: "hidden" }}>
         <SectionBadge n="08" label="CTA" light />
 
         <div className="absolute inset-0 pointer-events-none" style={{
@@ -605,7 +605,7 @@ const Index = () => {
             </p>
             <div className="flex items-center justify-center gap-5 flex-wrap">
               <ShimmerButton
-                style={{ fontSize: 12, padding: "15px 30px", background: C.navy, color: "#fff" }}
+                style={{ fontSize: 12, padding: "15px 30px", background: C.accent, color: C.black }}
                 onClick={() => scrollTo("contato")}
               >
                 SOLICITAR ANÁLISE GRATUITA
