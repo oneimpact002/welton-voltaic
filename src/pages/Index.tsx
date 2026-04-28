@@ -463,7 +463,7 @@ const Index = () => {
               <RevealOnScroll key={i} delay={i * 0.1}>
                 <div style={{
                   padding: 32, height: "100%", borderRadius: 10,
-                  border: s.highlight ? "none" : `1px solid ${bdr(4)}`,
+                  border: `1px solid ${bdr(4)}`,
                   backgroundColor: C.white,
                   cursor: "default",
                 }}>
