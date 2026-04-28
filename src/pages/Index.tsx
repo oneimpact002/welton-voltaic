@@ -136,7 +136,7 @@ const Index = () => {
           zIndex: 9999,
         }}
       >
-        <div className={`${inner} flex items-center justify-between py-4`}>
+        <div className={`${inner} flex items-center justify-between py-[9px]`}>
           <img
             src="/logo-voltaic.svg"
             alt="Voltaic"
