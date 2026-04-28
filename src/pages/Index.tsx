@@ -464,14 +464,14 @@ const Index = () => {
                 <div style={{
                   padding: 32, height: "100%", borderRadius: 10,
                   border: s.highlight ? "none" : `1px solid ${bdr(4)}`,
-                  backgroundColor: s.highlight ? C.accent : C.white,
+                  backgroundColor: C.white,
                   cursor: "default",
                 }}>
-                  <div style={{ marginBottom: 20, color: s.highlight ? "#fff" : C.accent }}>{s.icon}</div>
-                  <h3 style={{ fontSize: 18, fontWeight: 700, color: s.highlight ? "#fff" : fg(4), marginBottom: 12 }}>
+                  <div style={{ marginBottom: 20, color: C.accent }}>{s.icon}</div>
+                  <h3 style={{ fontSize: 18, fontWeight: 700, color: fg(4), marginBottom: 12 }}>
                     {s.title}
                   </h3>
-                  <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.7, color: s.highlight ? "#fff" : fg(4), opacity: s.highlight ? 0.85 : 0.5 }}>
+                  <p style={{ fontSize: 15, fontWeight: 300, lineHeight: 1.7, color: fg(4), opacity: 0.5 }}>
                     {s.desc}
                   </p>
                 </div>
