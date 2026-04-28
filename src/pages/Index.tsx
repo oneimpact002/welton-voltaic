@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { scrollTo } from "@/lib/scrollTo";
 import {
   ChevronDown, ChevronUp, ArrowRight,
@@ -101,6 +102,7 @@ function FAQAccordion() {
 
 const Index = () => {
   const inner = "max-w-[1140px] mx-auto px-6";
+  const navigate = useNavigate();
   const { isMobile } = useMobileLayout();
 
   const [navOnHero, setNavOnHero] = useState(true);
@@ -172,7 +174,7 @@ const Index = () => {
 
           <ShimmerButton
             style={{ background: C.accent, color: C.black }}
-            onClick={() => scrollTo("contato")}
+            onClick={() => navigate("/contato")}
           >
             SOLICITAR ANÁLISE
           </ShimmerButton>
@@ -236,7 +238,7 @@ const Index = () => {
             <div className="flex items-center gap-6 flex-wrap">
               <ShimmerButton
                 style={{ fontSize: 12, padding: "15px 30px", background: C.accent, color: C.black }}
-                onClick={() => scrollTo("contato")}
+                onClick={() => navigate("/contato")}
               >
                 SOLICITAR ANÁLISE GRATUITA
               </ShimmerButton>
@@ -606,7 +608,7 @@ const Index = () => {
             <div className="flex items-center justify-center gap-5 flex-wrap">
               <ShimmerButton
                 style={{ fontSize: 12, padding: "15px 30px", background: C.accent, color: C.black }}
-                onClick={() => scrollTo("contato")}
+                onClick={() => navigate("/contato")}
               >
                 SOLICITAR ANÁLISE GRATUITA
               </ShimmerButton>
