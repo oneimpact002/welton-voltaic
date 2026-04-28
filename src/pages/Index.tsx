@@ -246,16 +246,12 @@ const Index = () => {
           </div>
 
           <div className="relative hidden lg:block">
-            <div style={{
-              aspectRatio: "4/5", borderRadius: 8,
-              backgroundColor: C.navyMid,
-              display: "flex", alignItems: "center", justifyContent: "center",
-              border: `1px solid ${C.white}08`,
-            }}>
-              <div style={{ textAlign: "center" }}>
-                <Zap size={48} style={{ color: `${C.accent}50`, marginBottom: 12 }} />
-                <span style={{ color: `${C.white}20`, fontSize: 12 }}>Foto do projeto</span>
-              </div>
+            <div style={{ aspectRatio: "4/5", borderRadius: 8, overflow: "hidden" }}>
+              <img
+                src="/hero-paineis.jpg"
+                alt="Painéis solares Voltaic"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
             </div>
 
             <div style={{
