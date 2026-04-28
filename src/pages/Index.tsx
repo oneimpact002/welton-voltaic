@@ -326,19 +326,44 @@ const Index = () => {
               {/* Tag flutuante — estatística */}
               <div style={{
                 position: "absolute", top: 324, left: 24,
-                backgroundColor: C.accent,
+                backgroundColor: "#0f1a2e",
                 borderRadius: 10, padding: "16px 20px",
                 boxShadow: "0 8px 32px rgba(0,0,0,0.35)",
-                minWidth: 180,
+                minWidth: 200,
               }}>
-                <p style={{ fontSize: 11, fontWeight: 700, color: C.black, opacity: 0.55, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 6 }}>
+                <p style={{ fontSize: 11, fontWeight: 700, color: C.accent, opacity: 0.85, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 6 }}>
                   Energia desperdiçada
                 </p>
-                <p style={{ fontSize: 28, fontWeight: 800, color: C.black, lineHeight: 1, fontFamily: "'Encode Sans Expanded', sans-serif", marginBottom: 4 }}>
+                <p style={{ fontSize: 28, fontWeight: 800, color: C.white, lineHeight: 1, fontFamily: "'Encode Sans Expanded', sans-serif", marginBottom: 4 }}>
                   até 40%
                 </p>
-                <p style={{ fontSize: 12, fontWeight: 300, color: C.black, opacity: 0.6, lineHeight: 1.4 }}>
+                <p style={{ fontSize: 12, fontWeight: 300, color: C.white, opacity: 0.6, lineHeight: 1.4, marginBottom: 14 }}>
                   do faturamento vai para a conta de luz
+                </p>
+
+                {/* Mini gráfico de barras */}
+                <svg width="100%" height="48" viewBox="0 0 160 48" preserveAspectRatio="none">
+                  {[
+                    { x: 0,   h: 22 },
+                    { x: 24,  h: 28 },
+                    { x: 48,  h: 32 },
+                    { x: 72,  h: 36 },
+                    { x: 96,  h: 40 },
+                    { x: 120, h: 44 },
+                    { x: 144, h: 48 },
+                  ].map((bar, i, arr) => (
+                    <rect
+                      key={i}
+                      x={bar.x} y={48 - bar.h}
+                      width={16} height={bar.h}
+                      rx={3}
+                      fill={C.accent}
+                      opacity={0.2 + i * 0.12}
+                    />
+                  ))}
+                </svg>
+                <p style={{ fontSize: 10, color: C.white, opacity: 0.45, marginTop: 4, letterSpacing: "0.06em" }}>
+                  crescimento anual do custo de energia
                 </p>
               </div>
             </div>
