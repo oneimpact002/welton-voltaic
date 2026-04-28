@@ -240,13 +240,6 @@ const Index = () => {
               >
                 SOLICITAR ANÁLISE GRATUITA
               </ShimmerButton>
-              <button
-                className="flex items-center gap-2"
-                style={{ background: "none", border: "none", fontSize: 13, color: C.white, opacity: 0.4, cursor: "pointer" }}
-                onClick={() => scrollTo("como-funciona")}
-              >
-                Ver como funciona <ArrowRight size={14} />
-              </button>
             </div>
           </div>
 
@@ -617,13 +610,6 @@ const Index = () => {
               >
                 SOLICITAR ANÁLISE GRATUITA
               </ShimmerButton>
-              <button
-                className="flex items-center gap-2"
-                style={{ background: "none", border: "none", fontSize: 13, color: "#fff", opacity: 0.65, cursor: "pointer" }}
-                onClick={() => scrollTo("faq")}
-              >
-                Tire suas dúvidas <ArrowRight size={14} />
-              </button>
             </div>
           </div>
         </RevealOnScroll>
