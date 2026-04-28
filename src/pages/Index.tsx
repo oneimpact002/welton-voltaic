@@ -361,7 +361,7 @@ const Index = () => {
       </section>
 
       {/* ── COMO FUNCIONA ── */}
-      <section id="como-funciona" className="relative" style={{ background: bg(3), padding: "112px 24px" }}>
+      <section id="como-funciona" className="relative" style={{ background: bg(3), padding: "62px 24px 112px" }}>
         <SectionBadge n="04" label="Como Funciona" light />
         <div className={inner}>
           <RevealOnScroll>
