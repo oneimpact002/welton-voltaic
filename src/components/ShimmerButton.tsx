@@ -26,8 +26,10 @@ export default function ShimmerButton({ children, style, variant = "light", ...r
     ...style,
   };
 
+  const cls = ["btn-hero-hover", rest.className].filter(Boolean).join(" ");
+
   return (
-    <button style={base} {...rest}>
+    <button style={base} {...rest} className={cls}>
       <span style={{ position: "relative", zIndex: 1 }}>{children}</span>
       <span className="shimmer-overlay" />
     </button>

@@ -5,6 +5,7 @@ import {
   ChevronDown, ChevronUp, ArrowRight,
   MessageCircle, Mail, XCircle,
   Building2, Zap, TrendingDown, Clock,
+  ShieldCheck, Settings2, BarChart2,
 } from "lucide-react";
 import WordReveal from "@/components/WordReveal";
 import ShimmerButton from "@/components/ShimmerButton";
@@ -101,11 +102,12 @@ function FAQAccordion() {
 }
 
 const Index = () => {
-  const inner = "max-w-[1140px] mx-auto px-6";
+  const inner = "max-w-[1140px] mx-auto px-5 lg:px-6";
   const navigate = useNavigate();
   const { isMobile } = useMobileLayout();
 
   const [navOnHero, setNavOnHero] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -127,7 +129,7 @@ const Index = () => {
 
       {/* ── NAV ── */}
       <nav
-        className="sticky top-0 px-6"
+        className="sticky top-0 px-5 lg:px-6"
         style={{
           background: navBg,
           borderBottom: !navOnHero ? `1px solid ${C.black}12` : "none",
@@ -147,6 +149,7 @@ const Index = () => {
             }}
           />
 
+          {/* Desktop links */}
           <div className="hidden md:flex items-center gap-8">
             {[
               { label: "Início",        id: "inicio"        },
@@ -173,11 +176,73 @@ const Index = () => {
           </div>
 
           <ShimmerButton
+            className="hidden md:inline-flex"
             style={{ background: C.accent, color: C.black }}
             onClick={() => navigate("/contato")}
           >
             SOLICITAR ANÁLISE
           </ShimmerButton>
+
+          {/* Hamburger — mobile only */}
+          <button
+            className="flex md:hidden flex-col justify-center items-center gap-[5px] p-2"
+            onClick={() => setMenuOpen(o => !o)}
+            aria-label="Menu"
+          >
+            <span style={{
+              display: "block", width: 22, height: 2, borderRadius: 2,
+              background: navOnHero ? C.white : C.black,
+              transform: menuOpen ? "translateY(7px) rotate(45deg)" : "none",
+              transition: "transform 0.25s ease",
+            }} />
+            <span style={{
+              display: "block", width: 22, height: 2, borderRadius: 2,
+              background: navOnHero ? C.white : C.black,
+              opacity: menuOpen ? 0 : 1,
+              transition: "opacity 0.25s ease",
+            }} />
+            <span style={{
+              display: "block", width: 22, height: 2, borderRadius: 2,
+              background: navOnHero ? C.white : C.black,
+              transform: menuOpen ? "translateY(-7px) rotate(-45deg)" : "none",
+              transition: "transform 0.25s ease",
+            }} />
+          </button>
+        </div>
+
+        {/* Mobile drawer */}
+        <div
+          className="md:hidden overflow-hidden"
+          style={{
+            maxHeight: menuOpen ? 400 : 0,
+            transition: "max-height 0.35s ease",
+            background: C.navy,
+          }}
+        >
+          <div className="flex flex-col px-5 pb-6 pt-2 gap-5">
+            {[
+              { label: "Início",        id: "inicio"        },
+              { label: "Como Funciona", id: "como-funciona" },
+              { label: "Diferenciais",  id: "diferenciais"  },
+              { label: "Sobre",         id: "sobre"         },
+              { label: "FAQ",           id: "faq"           },
+            ].map(({ label, id }) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                onClick={(e) => { e.preventDefault(); setMenuOpen(false); scrollTo(id); }}
+                style={{ fontSize: 14, color: C.white, opacity: 0.8, textDecoration: "none" }}
+              >
+                {label}
+              </a>
+            ))}
+            <ShimmerButton
+              style={{ background: C.accent, color: C.black, alignSelf: "flex-start" }}
+              onClick={() => { setMenuOpen(false); navigate("/contato"); }}
+            >
+              SOLICITAR ANÁLISE
+            </ShimmerButton>
+          </div>
         </div>
       </nav>
 
@@ -196,7 +261,7 @@ const Index = () => {
         <SectionBadge n="01" label="Hero" light />
 
         <div className="absolute inset-0 pointer-events-none" style={{
-          backgroundImage: `linear-gradient(${C.white}06 1px, transparent 1px), linear-gradient(90deg, ${C.white}06 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(${C.white}0a 1px, transparent 1px), linear-gradient(90deg, ${C.white}0a 1px, transparent 1px)`,
           backgroundSize: "60px 60px",
         }} />
 
@@ -214,7 +279,7 @@ const Index = () => {
             }}>
               <span style={{ width: 5, height: 5, borderRadius: "50%", backgroundColor: C.accent, flexShrink: 0 }} />
               <span style={{ fontSize: 10, letterSpacing: "0.2em", color: C.accent, textTransform: "uppercase", fontWeight: 700 }}>
-                Energia Solar Industrial
+                Energia Solar para Empresas e Indústrias
               </span>
             </div>
 
@@ -223,26 +288,55 @@ const Index = () => {
               fontSize: isMobile ? 28 : 42, fontWeight: 800, lineHeight: 1.1,
               color: C.white, marginBottom: 28,
             }}>
-              <WordReveal text="Aumente as suas" style={{ color: C.white, display: "block" }} delay={0.1} />
-              <WordReveal text="horas de Sol." style={{ color: C.accentLight, display: "block" }} delay={0.28} />
-              <WordReveal text="Reduza a sua fatura de eletricidade." style={{ color: C.white, display: "block" }} delay={0.45} />
+              <WordReveal text="Reduza o custo de energia" style={{ color: C.accentLight, display: "block" }} delay={0.1} />
+              <WordReveal text="da sua indústria com uma solução que se paga ao longo do tempo" style={{ color: C.white, display: "block" }} delay={0.28} />
             </h1>
 
             <p style={{
               fontSize: 17, fontWeight: 300, color: C.white, opacity: 0.5,
               lineHeight: 1.75, marginBottom: 48, maxWidth: 480,
             }}>
-              Instalamos sistemas solares para indústrias com alto consumo energético — projeto técnico, homologação e acompanhamento do início ao fim.
+              Uma solução pensada para indústrias com alto consumo, que transforma gastos com energia em economia real ao longo do tempo.
             </p>
 
             <div className="flex items-center gap-6 flex-wrap">
               <ShimmerButton
+                className="btn-hero-hover"
                 style={{ fontSize: 12, padding: "15px 30px", background: C.accent, color: C.black }}
                 onClick={() => navigate("/contato")}
               >
                 SOLICITAR ANÁLISE GRATUITA
               </ShimmerButton>
             </div>
+          </div>
+
+          {/* Mobile image — shown below text on small screens */}
+          <div className="relative block lg:hidden w-full">
+            <div style={{ width: "100%", aspectRatio: "5/7", borderRadius: 8, overflow: "hidden" }}>
+              <img
+                src="/hero-paineis.jpg"
+                alt="Painéis solares Voltaic"
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </div>
+
+            <div className="animate-float" style={{
+              position: "absolute", left: -12, bottom: 40,
+              backgroundColor: "#0c1627", padding: "14px 18px",
+              boxShadow: "0 20px 60px rgba(0,0,0,0.4)", borderRadius: 8,
+              border: "1px solid #e4c125ad",
+            }}>
+              <CounterUp
+                to={80} prefix="Até " suffix="%"
+                style={{ fontSize: 28, fontWeight: 800, color: C.white, lineHeight: 1, display: "block" }}
+              />
+              <p style={{ fontSize: 12, color: C.white, opacity: 0.4, marginTop: 4 }}>de redução na fatura</p>
+            </div>
+
+            <div style={{
+              position: "absolute", top: 0, right: -6,
+              width: 3, height: "55%", backgroundColor: C.accent, borderRadius: 4,
+            }} />
           </div>
 
           <div className="relative hidden lg:block">
@@ -254,21 +348,32 @@ const Index = () => {
               />
             </div>
 
-            <div style={{
+            <div className="animate-float" style={{
               position: "absolute", left: -32, bottom: 56,
               backgroundColor: "#0c1627", padding: "18px 22px",
               boxShadow: "0 20px 60px rgba(0,0,0,0.4)", borderRadius: 8,
               border: "1px solid #e4c125ad",
             }}>
               <CounterUp
-                to={95} prefix="" suffix="%"
+                to={80} prefix="Até " suffix="%"
                 style={{ fontSize: 32, fontWeight: 800, color: C.white, lineHeight: 1, display: "block" }}
               />
-              <p style={{ fontSize: 11, color: C.white, opacity: 0.4, marginTop: 5 }}>de redução na fatura</p>
+              <p style={{ fontSize: 14, color: C.white, opacity: 0.4, marginTop: 5 }}>de redução na fatura</p>
+            </div>
+
+            <div className="animate-float" style={{
+              position: "absolute", top: 200, right: -50,
+              backgroundColor: "#0c1627", padding: "18px 22px",
+              boxShadow: "0 20px 60px rgba(0,0,0,0.4)", borderRadius: 8,
+              border: "1px solid #e4c125ad",
+              animationDelay: "0.8s", zIndex: 2,
+            }}>
+              <TrendingDown size={30} color={C.accent} style={{ marginBottom: 8 }} />
+              <p style={{ fontSize: 16, fontWeight: 600, color: C.white, lineHeight: 1.4, maxWidth: 180 }}>Redução real de custos operacionais</p>
             </div>
 
             <div style={{
-              position: "absolute", top: 0, right: -6,
+              position: "absolute", top: 30, right: -6, zIndex: 1,
               width: 3, height: "55%", backgroundColor: C.accent, borderRadius: 4,
             }} />
           </div>
@@ -276,31 +381,31 @@ const Index = () => {
       </section>
 
       {/* ── FAIXA NÚMEROS ── */}
-      <section style={{ background: bg(1), padding: "106px 24px 56px" }}>
+      <section style={{ background: bg(1), padding: "106px 24px 6px" }}>
         <SectionBadge n="02" label="Números" light />
         <RevealOnScroll>
           <div className={inner}>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-0" style={{
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-0" style={{
               borderTop: `1px solid ${C.white}14`,
               borderLeft: `1px solid ${C.white}14`,
             }}>
               {[
-                { to: 95,  prefix: "até ", suffix: "%",     label: "De redução na fatura"    },
-                { to: 5,   prefix: "",     suffix: " anos",  label: "Prazo médio de retorno"  },
-                { to: 25,  prefix: "",     suffix: " anos",  label: "Vida útil dos painéis"   },
-                { to: 100, prefix: "",     suffix: "%",      label: "Do processo acompanhado" },
-              ].map((item, i) => (
-                <div key={i} style={{
-                  padding: "40px 32px",
-                  borderBottom: `1px solid ${C.white}14`,
-                  borderRight: `1px solid ${C.white}14`,
-                }}>
-                  <CounterUp
-                    to={item.to} prefix={item.prefix} suffix={item.suffix}
-                    style={{ fontSize: 36, fontWeight: 800, color: C.accentLight, lineHeight: 1, display: "block" }}
-                  />
-                  <p style={{ fontSize: 12, color: C.white, opacity: 0.35, marginTop: 10, letterSpacing: "0.05em" }}>
-                    {item.label}
+                { icon: ShieldCheck, text: "Garanta mais controle sobre os seus custos de energia" },
+                { icon: Settings2,   text: "Tenha uma solução adaptada ao consumo da sua empresa"  },
+                { icon: BarChart2,   text: "Reduza seus custos operacionais de forma consistente"  },
+              ].map(({ icon: Icon, text }, i) => (
+                <div
+                  key={i}
+                  className="card-hover-bg"
+                  style={{
+                    padding: "40px 32px",
+                    border: `1px solid ${C.white}14`,
+                    cursor: "default",
+                  }}
+                >
+                  <Icon size={28} color={C.accent} style={{ marginBottom: 16 }} />
+                  <p style={{ fontSize: 16, fontWeight: 600, color: C.white, lineHeight: 1.5 }}>
+                    {text}
                   </p>
                 </div>
               ))}
@@ -317,28 +422,30 @@ const Index = () => {
             <div style={{ position: "relative" }}>
               <div style={{ aspectRatio: "4/5", borderRadius: 8, overflow: "hidden" }}>
                 <img
-                  src="/paineis-solares-02.jpg"
+                  src="/paineis-solares-03.jpg"
                   alt="Painéis solares industriais Voltaic"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </div>
 
+              <div style={{
+                position: "absolute", top: 30, right: -6, zIndex: 1,
+                width: 3, height: "55%", backgroundColor: C.accent, borderRadius: 4,
+              }} />
+
               {/* Tag flutuante — estatística */}
               <div className="tag-enter" style={{
-                position: "absolute", top: 524, left: -76,
+                position: "absolute", top: isMobile ? "55%" : 524, left: isMobile ? 12 : -76,
                 backgroundColor: "#0f1a2e",
                 borderRadius: 10, padding: "16px 20px",
                 boxShadow: "0 8px 32px rgba(0,0,0,0.35)",
                 minWidth: 200,
               }}>
-                <p style={{ fontSize: 11, fontWeight: 700, color: C.accent, opacity: 0.85, letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: 6 }}>
-                  Energia desperdiçada
-                </p>
                 <p style={{ fontSize: 28, fontWeight: 800, color: C.white, lineHeight: 1, fontFamily: "'Encode Sans Expanded', sans-serif", marginBottom: 4 }}>
-                  até 40%
+                  até 100%
                 </p>
                 <p style={{ fontSize: 12, fontWeight: 300, color: C.white, opacity: 0.6, lineHeight: 1.4, marginBottom: 14 }}>
-                  do faturamento vai para a conta de luz
+                  de aumento no custo da energia
                 </p>
 
                 {/* Mini gráfico de barras */}
@@ -363,7 +470,7 @@ const Index = () => {
                   ))}
                 </svg>
                 <p style={{ fontSize: 10, color: C.white, opacity: 0.45, marginTop: 4, letterSpacing: "0.06em" }}>
-                  crescimento anual do custo de energia
+                  aumento de custo de energia em períodos recentes
                 </p>
               </div>
             </div>
@@ -403,7 +510,7 @@ const Index = () => {
       </section>
 
       {/* ── COMO FUNCIONA ── */}
-      <section id="como-funciona" className="relative" style={{ background: bg(3), padding: "62px 24px 112px" }}>
+      <section id="como-funciona" className="relative" style={{ background: bg(3), padding: isMobile ? "12px 24px 112px" : "62px 24px 112px" }}>
         <SectionBadge n="04" label="Como Funciona" light />
         <div className={inner}>
           <RevealOnScroll>
@@ -420,7 +527,7 @@ const Index = () => {
             </div>
           </RevealOnScroll>
 
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-0 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-0 relative" style={{ gap: isMobile ? 30 : 0 }}>
             <div className="hidden lg:block absolute" style={{
               top: 22, left: "12.5%", right: "12.5%", height: 1,
               background: `linear-gradient(to right, transparent, ${C.accent}40, ${C.accent}40, transparent)`,
@@ -441,7 +548,7 @@ const Index = () => {
                     display: "flex", alignItems: "center", justifyContent: "center",
                     marginBottom: 28, position: "relative", zIndex: 1,
                   }}>
-                    <span style={{ fontSize: 10, fontWeight: 800, color: C.accent, fontFamily: "monospace", letterSpacing: "0.05em" }}>
+                    <span style={{ fontSize: 15, fontWeight: 500, color: C.accent, fontFamily: "monospace", letterSpacing: "0.05em" }}>
                       {s.n}
                     </span>
                   </div>
@@ -455,9 +562,16 @@ const Index = () => {
       </section>
 
       {/* ── CTA MID ── */}
-      <section style={{ background: "#0f1a2e", padding: "56px 24px" }}>
+      <section style={{
+        background: "#0f1a2e", padding: "56px 24px", position: "relative", overflow: "hidden",
+      }}>
+        <div style={{
+          position: "absolute", inset: 0, pointerEvents: "none",
+          backgroundImage: `linear-gradient(${C.white}0a 1px, transparent 1px), linear-gradient(90deg, ${C.white}0a 1px, transparent 1px)`,
+          backgroundSize: "60px 60px",
+        }} />
         <RevealOnScroll>
-          <div className={`${inner} flex flex-col md:flex-row items-center justify-between gap-8`}>
+          <div className={`${inner} flex flex-col items-center justify-center gap-8 text-center`}>
             <div>
               <p style={{ fontSize: 11, letterSpacing: "0.2em", color: C.white, opacity: 0.5, textTransform: "uppercase", marginBottom: 10 }}>
                 Próximo passo
@@ -551,7 +665,7 @@ const Index = () => {
       </section>
 
       {/* ── IMPACTO ── */}
-      <section className="relative" style={{ background: bg(5), padding: "112px 24px" }}>
+      <section className="relative" style={{ background: bg(5), padding: isMobile ? "12px 24px" : "62px 24px" }}>
         <SectionBadge n="06" label="Impacto" light />
         <div className={inner}>
           <RevealOnScroll>
@@ -563,7 +677,7 @@ const Index = () => {
                 fontFamily: "'Encode Sans Expanded', sans-serif",
                 fontSize: isMobile ? 26 : 38, fontWeight: 800, color: fg(5), lineHeight: 1.15,
               }}>
-                <WordReveal text="Energia deixa de ser custo. Passa a ser investimento." style={{ color: fg(5) }} />
+                <WordReveal text="Energia deixa de ser custo e passa a ser investimento" style={{ color: fg(5) }} />
               </h2>
             </div>
           </RevealOnScroll>
@@ -602,16 +716,18 @@ const Index = () => {
         <SectionBadge n="07" label="Sobre" light />
         <div className={`${inner} grid grid-cols-1 lg:grid-cols-2 gap-20 items-center`}>
           <RevealOnScroll delay={0}>
-            <div style={{
-              aspectRatio: "1/1", borderRadius: 8,
-              backgroundColor: C.navyMid,
-              display: "flex", alignItems: "center", justifyContent: "center",
-              border: `1px solid ${C.white}08`,
-            }}>
-              <div style={{ textAlign: "center" }}>
-                <Zap size={48} style={{ color: `${C.accentLight}40`, marginBottom: 12 }} />
-                <span style={{ color: `${C.white}20`, fontSize: 12 }}>Foto</span>
+            <div style={{ position: "relative" }}>
+              <div style={{ height: isMobile ? "auto" : 650, aspectRatio: isMobile ? "4/5" : "auto", borderRadius: 8, overflow: "hidden" }}>
+                <img
+                  src="/paineis-solares-04.jpg"
+                  alt="Voltaic instalação solar"
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
               </div>
+              <div style={{
+                position: "absolute", top: 30, left: -6, zIndex: 1,
+                width: 3, height: "55%", backgroundColor: C.accent, borderRadius: 4,
+              }} />
             </div>
           </RevealOnScroll>
 
@@ -659,7 +775,7 @@ const Index = () => {
         }} />
 
         <RevealOnScroll>
-          <div className={`${inner} text-center relative`} style={{ maxWidth: 640, marginLeft: "auto", marginRight: "auto" }}>
+          <div className={`${inner} text-center relative`} style={{ maxWidth: 680, marginLeft: "auto", marginRight: "auto" }}>
             <p style={{ fontSize: 11, letterSpacing: "0.2em", color: "#fff", opacity: 0.65, textTransform: "uppercase", marginBottom: 20 }}>
               Próximo passo
             </p>
@@ -667,10 +783,10 @@ const Index = () => {
               fontFamily: "'Encode Sans Expanded', sans-serif",
               fontSize: isMobile ? 28 : 40, fontWeight: 800, color: "#fff", lineHeight: 1.15, marginBottom: 20,
             }}>
-              <WordReveal text="Chega de pagar pelo que o sol já dá de graça." style={{ color: "#fff" }} />
+              <WordReveal text="Avalie agora quanto sua empresa pode economizar na conta de energia" style={{ color: "#fff" }} />
             </h2>
             <p style={{ fontSize: 17, fontWeight: 300, color: "#fff", opacity: 0.7, lineHeight: 1.7, marginBottom: 48 }}>
-              Solicite uma análise técnica gratuita. Avaliamos o consumo da sua empresa e apresentamos o retorno financeiro real — sem compromisso de contratação.
+              Solicite uma análise técnica e veja, com base no consumo da sua empresa, quanto sua empresa pode reduzir nos custos de energia.
             </p>
             <div className="flex items-center justify-center gap-5 flex-wrap">
               <ShimmerButton
@@ -697,7 +813,7 @@ const Index = () => {
                 fontFamily: "'Encode Sans Expanded', sans-serif",
                 fontSize: isMobile ? 26 : 36, fontWeight: 800, color: fg(8), lineHeight: 1.2, marginBottom: 15,
               }}>
-                <WordReveal text="Perguntas que todo empresário faz antes de decidir." style={{ color: fg(8) }} />
+                <WordReveal text="Perguntas que todo empresário faz antes de decidir" style={{ color: fg(8) }} />
               </h2>
               <p style={{ fontSize: 16, fontWeight: 300, color: fg(8), opacity: 0.45, lineHeight: 1.7, marginBottom: 40 }}>
                 Se ainda tiver dúvidas, entre em contato diretamente. Respondemos todas.
