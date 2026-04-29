@@ -314,13 +314,12 @@ const Index = () => {
         <div className={`${inner} grid grid-cols-1 lg:grid-cols-2 gap-20 items-center`}>
           <RevealOnScroll delay={0}>
             <div style={{ position: "relative" }}>
-              <div style={{
-                aspectRatio: "4/5", borderRadius: 8,
-                backgroundColor: C.navyMid,
-                display: "flex", alignItems: "center", justifyContent: "center",
-                border: `1px solid ${C.white}08`,
-              }}>
-                <span style={{ color: `${C.white}20`, fontSize: 13 }}>Foto</span>
+              <div style={{ aspectRatio: "4/5", borderRadius: 8, overflow: "hidden" }}>
+                <img
+                  src="/paineis-solares-02.jpg"
+                  alt="Painéis solares industriais Voltaic"
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
               </div>
 
               {/* Tag flutuante — estatística */}
