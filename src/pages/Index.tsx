@@ -256,14 +256,15 @@ const Index = () => {
 
             <div style={{
               position: "absolute", left: -32, bottom: 56,
-              backgroundColor: C.white, padding: "18px 22px",
+              backgroundColor: "#0c1627", padding: "18px 22px",
               boxShadow: "0 20px 60px rgba(0,0,0,0.4)", borderRadius: 8,
+              border: "1px solid #e4c125ad",
             }}>
               <CounterUp
                 to={95} prefix="" suffix="%"
-                style={{ fontSize: 32, fontWeight: 800, color: C.black, lineHeight: 1, display: "block" }}
+                style={{ fontSize: 32, fontWeight: 800, color: C.white, lineHeight: 1, display: "block" }}
               />
-              <p style={{ fontSize: 11, color: C.black, opacity: 0.4, marginTop: 5 }}>de redução na fatura</p>
+              <p style={{ fontSize: 11, color: C.white, opacity: 0.4, marginTop: 5 }}>de redução na fatura</p>
             </div>
 
             <div style={{
