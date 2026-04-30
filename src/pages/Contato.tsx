@@ -160,7 +160,7 @@ const Contato = () => {
                 Solicitar análise gratuita
               </h1>
               <p style={{ fontSize: 16, fontWeight: 300, color: C.white, opacity: 0.45, lineHeight: 1.75 }}>
-                Preencha os dados abaixo. Entraremos em contato em até 24 horas com uma análise personalizada para a sua empresa.
+                Preencha os dados abaixo. Entraremos em contacto em até 24 horas com uma análise personalizada para a sua empresa.
               </p>
             </div>
 
@@ -172,7 +172,7 @@ const Contato = () => {
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
                 <Input label="E-mail" name="email" type="email" placeholder="seu@email.com" value={form.email} onChange={set("email")} />
-                <Input label="WhatsApp" name="whatsapp" type="tel" placeholder="(00) 00000-0000" value={form.whatsapp} onChange={set("whatsapp")} />
+                <Input label="WhatsApp" name="whatsapp" type="tel" placeholder="+351 XXX XXX XXX" value={form.whatsapp} onChange={set("whatsapp")} />
               </div>
 
               <Select
@@ -184,9 +184,9 @@ const Contato = () => {
               />
 
               <Input
-                label="Valor médio da fatura de energia (R$)"
+                label="Valor médio da fatura de energia (€)"
                 name="fatura"
-                placeholder="Ex: R$ 15.000"
+                placeholder="Ex: 15.000 €"
                 value={form.fatura}
                 onChange={set("fatura")}
                 required={false}
@@ -207,7 +207,7 @@ const Contato = () => {
               </ShimmerButton>
 
               <p style={{ fontSize: 12, color: C.white, opacity: 0.25, textAlign: "center", lineHeight: 1.6 }}>
-                Ao enviar, você concorda em receber contato da Voltaic sobre esta solicitação.
+                Ao enviar, concorda em receber contacto da Voltaic sobre esta solicitação.
               </p>
             </form>
           </>
@@ -229,7 +229,7 @@ const Contato = () => {
               Solicitação enviada!
             </h2>
             <p style={{ fontSize: 16, fontWeight: 300, color: C.white, opacity: 0.45, lineHeight: 1.75, marginBottom: 48, maxWidth: 420, margin: "0 auto 48px" }}>
-              Recebemos seus dados. Nossa equipe entrará em contato em até 24 horas para apresentar a análise da sua empresa.
+              Recebemos os seus dados. A nossa equipa entrará em contacto em até 24 horas para apresentar a análise da sua empresa.
             </p>
             <button
               onClick={() => navigate("/")}

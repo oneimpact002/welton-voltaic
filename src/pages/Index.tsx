@@ -52,24 +52,24 @@ function SectionBadge({ n, label, light = false }: { n: string; label: string; l
 
 const faqs = [
   {
-    q: "Isso realmente vai reduzir minha conta de energia?",
-    a: "Sim. Um sistema bem dimensionado para o seu consumo pode reduzir a fatura de eletricidade em até 95%. Antes de qualquer proposta, fazemos uma análise técnica do seu consumo real para garantir que o retorno seja previsível e comprovado.",
+    q: "Vale a pena investir em energia solar para a minha empresa?",
+    a: "Sim, especialmente se a sua empresa tem um consumo elevado de eletricidade. A energia solar permite reduzir significativamente a fatura de energia e transformar um custo fixo num investimento com retorno ao longo do tempo. Muitas empresas procuram exatamente isso: diminuir despesas operacionais e ganhar previsibilidade financeira. Entre em contacto connosco e esclareça as suas dúvidas com uma análise técnica.",
   },
   {
-    q: "Em quanto tempo recupero o investimento?",
-    a: "Para empresas industriais, o prazo médio de retorno é de 3 a 5 anos. Após esse período, a energia gerada pelos painéis é essencialmente gratuita pelos próximos 20+ anos. Apresentamos o retorno financeiro detalhado antes de qualquer decisão.",
+    q: "Em quanto tempo recupero o investimento em energia solar?",
+    a: "O tempo de retorno depende do consumo energético da empresa e da dimensão da instalação, mas na maioria dos casos situa-se entre alguns anos. O mais importante é que, após esse período, a empresa passa a gerar poupança contínua na conta de eletricidade, reduzindo custos de forma consistente. Fale com a nossa equipa e veja quanto pode reduzir nos seus custos de energia.",
   },
   {
-    q: "Vale mesmo a pena instalar painéis solares na minha empresa?",
-    a: "Depende do seu consumo e perfil de operação — é exatamente por isso que fazemos uma análise antes de qualquer proposta. Para indústrias com alto consumo energético, a energia solar costuma ser uma das decisões financeiras mais inteligentes do negócio.",
+    q: "A energia solar reduz mesmo a conta de eletricidade?",
+    a: "Sim, quando o sistema é corretamente dimensionado, é possível reduzir uma grande parte da fatura de energia. O objetivo é adaptar a solução ao consumo real da empresa, garantindo uma redução efetiva e sustentável ao longo do tempo. Fale com a nossa equipa e veja quanto pode reduzir nos seus custos de energia.",
   },
   {
-    q: "Quanto custa uma instalação?",
-    a: "O custo varia conforme o porte do sistema necessário para o seu consumo. Para ter um número real, precisamos analisar sua demanda atual. Entre em contato para uma análise técnica gratuita — sem compromisso.",
+    q: "Como saber se a energia solar faz sentido para o meu caso?",
+    a: "A forma mais segura é através de uma análise técnica ao consumo energético da empresa. É com base nesses dados que se avalia o potencial de poupança, o investimento necessário e o retorno esperado. Sem essa análise, qualquer decisão será baseada apenas em estimativas genéricas. Entre em contacto connosco e esclareça as suas dúvidas com uma análise técnica.",
   },
   {
-    q: "Como funciona o processo de instalação?",
-    a: "Cuidamos de tudo: visita técnica, projeto, instalação e homologação junto à distribuidora. Você não precisa se preocupar com burocracia. Do início ao fim, acompanhamos cada etapa com prazo e responsabilidade.",
+    q: "O que diferencia esta solução de outras empresas de energia solar?",
+    a: "A principal diferença está no processo completo e personalizado. Desde a análise inicial até à instalação e acompanhamento, o foco é garantir uma solução adaptada ao consumo da empresa, com qualidade na execução e compromisso com os resultados. Isso reduz riscos e aumenta a confiança na decisão. Fale com um especialista e descubra se esta solução faz sentido para a sua empresa.",
   },
 ];
 
@@ -178,7 +178,7 @@ const Index = () => {
           <ShimmerButton
             className="hidden md:inline-flex"
             style={{ background: C.accent, color: C.black }}
-            onClick={() => navigate("/contato")}
+            onClick={() => window.open("https://tally.so/r/lbVBL5", "_blank")}
           >
             SOLICITAR ANÁLISE
           </ShimmerButton>
@@ -216,7 +216,7 @@ const Index = () => {
           style={{
             maxHeight: menuOpen ? 400 : 0,
             transition: "max-height 0.35s ease",
-            background: C.navy,
+            background: navOnHero ? C.navy : C.white,
           }}
         >
           <div className="flex flex-col px-5 pb-6 pt-2 gap-5">
@@ -231,14 +231,14 @@ const Index = () => {
                 key={id}
                 href={`#${id}`}
                 onClick={(e) => { e.preventDefault(); setMenuOpen(false); scrollTo(id); }}
-                style={{ fontSize: 14, color: C.white, opacity: 0.8, textDecoration: "none" }}
+                style={{ fontSize: 14, color: navOnHero ? C.white : C.black, opacity: 0.8, textDecoration: "none" }}
               >
                 {label}
               </a>
             ))}
             <ShimmerButton
               style={{ background: C.accent, color: C.black, alignSelf: "flex-start" }}
-              onClick={() => { setMenuOpen(false); navigate("/contato"); }}
+              onClick={() => { setMenuOpen(false); window.open("https://tally.so/r/lbVBL5", "_blank"); }}
             >
               SOLICITAR ANÁLISE
             </ShimmerButton>
@@ -296,14 +296,14 @@ const Index = () => {
               fontSize: 17, fontWeight: 300, color: C.white, opacity: 0.5,
               lineHeight: 1.75, marginBottom: 48, maxWidth: 480,
             }}>
-              Uma solução pensada para indústrias com alto consumo, que transforma gastos com energia em economia real ao longo do tempo.
+              Uma solução concebida para indústrias com elevado consumo, que transforma os custos com energia em poupança real ao longo do tempo.
             </p>
 
             <div className="flex items-center gap-6 flex-wrap">
               <ShimmerButton
                 className="btn-hero-hover"
                 style={{ fontSize: 12, padding: "15px 30px", background: C.accent, color: C.black }}
-                onClick={() => navigate("/contato")}
+                onClick={() => window.open("https://tally.so/r/lbVBL5", "_blank")}
               >
                 SOLICITAR ANÁLISE GRATUITA
               </ShimmerButton>
@@ -390,7 +390,7 @@ const Index = () => {
               borderLeft: `1px solid ${C.white}14`,
             }}>
               {[
-                { icon: ShieldCheck, text: "Garanta mais controle sobre os seus custos de energia" },
+                { icon: ShieldCheck, text: "Garanta mais controlo sobre os seus custos de energia" },
                 { icon: Settings2,   text: "Tenha uma solução adaptada ao consumo da sua empresa"  },
                 { icon: BarChart2,   text: "Reduza seus custos operacionais de forma consistente"  },
               ].map(({ icon: Icon, text }, i) => (
@@ -470,7 +470,7 @@ const Index = () => {
                   ))}
                 </svg>
                 <p style={{ fontSize: 10, color: C.white, opacity: 0.45, marginTop: 4, letterSpacing: "0.06em" }}>
-                  aumento de custo de energia em períodos recentes
+                  aumento do custo de energia em períodos recentes
                 </p>
               </div>
             </div>
@@ -485,18 +485,18 @@ const Index = () => {
                 fontFamily: "'Encode Sans Expanded', sans-serif",
                 fontSize: isMobile ? 26 : 38, fontWeight: 800, color: fg(2), lineHeight: 1.15, marginBottom: 15,
               }}>
-                <WordReveal text="Energia cara está consumindo o lucro da sua empresa." style={{ color: fg(2) }} />
+                <WordReveal text="A energia cara está a consumir o lucro da sua empresa" style={{ color: fg(2) }} />
               </h2>
               <p style={{ fontSize: 16, fontWeight: 300, color: fg(2), opacity: 0.5, lineHeight: 1.7, marginBottom: 40 }}>
-                Para indústrias com máquinas de grande potência, a conta de eletricidade é uma das maiores despesas fixas — e ela sobe todo ano, sem que você possa fazer nada.
+                Para indústrias com equipamentos de elevada potência, a fatura de eletricidade é uma das maiores despesas fixas — e continua a aumentar todos os anos, sem que haja margem de controlo.
               </p>
               <ul style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 {[
-                  "Conta de energia que cresce a cada reajuste tarifário",
-                  "Gasto que poderia estar financiando o crescimento do negócio",
-                  "Dependência total da distribuidora e das bandeiras tarifárias",
-                  "Custo imprevisível que impede o planejamento financeiro",
-                  "Dinheiro saindo todo mês sem nenhum retorno",
+                  "Fatura de energia que aumenta a cada revisão tarifária",
+                  "Despesa que poderia estar a financiar o crescimento do negócio",
+                  "Dependência total da distribuidora e das tarifas de energia",
+                  "Custo imprevisível que dificulta o planeamento financeiro",
+                  "Dinheiro a sair todos os meses sem qualquer retorno",
                 ].map((text, i) => (
                   <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
                     <XCircle size={18} style={{ color: `${C.accent}80`, flexShrink: 0, marginTop: 2 }} />
@@ -522,7 +522,7 @@ const Index = () => {
                 fontFamily: "'Encode Sans Expanded', sans-serif",
                 fontSize: isMobile ? 26 : 38, fontWeight: 800, color: fg(3), lineHeight: 1.15,
               }}>
-                <WordReveal text="Do diagnóstico à energia funcionando" style={{ color: fg(3) }} />
+                <WordReveal text="Do diagnóstico à energia em funcionamento" style={{ color: fg(3) }} />
               </h2>
             </div>
           </RevealOnScroll>
@@ -534,10 +534,10 @@ const Index = () => {
             }} />
 
             {[
-              { n: "01", title: "Análise técnica",      desc: "Avaliamos o consumo real da sua empresa e o potencial de geração antes de qualquer proposta." },
-              { n: "02", title: "Proposta com retorno",  desc: "Dimensionamos o sistema ideal e apresentamos o retorno financeiro detalhado — sem promessa vaga." },
-              { n: "03", title: "Instalação",            desc: "Nossa equipe realiza a instalação com segurança e compromisso de prazo — sem terceirizar." },
-              { n: "04", title: "Homologação e uso",     desc: "Cuidamos de toda a burocracia com a distribuidora. Você só liga o sistema e começa a economizar." },
+              { n: "01", title: "Análise técnica",      desc: "Avaliamos o consumo real da sua empresa e o potencial de produção antes de qualquer proposta." },
+              { n: "02", title: "Proposta com retorno",  desc: "Dimensionamos o sistema ideal e apresentamos o retorno financeiro detalhado — sem promessas vagas." },
+              { n: "03", title: "Instalação",            desc: "A nossa equipa realiza a instalação com segurança e cumprimento de prazos — sem subcontratação." },
+              { n: "04", title: "Homologação e uso",     desc: "Tratamos de toda a burocracia com a distribuidora. Só tem de ligar o sistema e começar a poupar." },
             ].map((s, i) => (
               <RevealOnScroll key={i} delay={i * 0.12}>
                 <div style={{ padding: "0 20px 0 0", position: "relative" }}>
@@ -580,12 +580,12 @@ const Index = () => {
                 fontFamily: "'Encode Sans Expanded', sans-serif",
                 fontSize: isMobile ? 22 : 28, fontWeight: 800, color: C.white, lineHeight: 1.2,
               }}>
-                Descubra quanto sua empresa pode economizar.
+                Descubra quanto a sua empresa pode poupar.
               </h2>
             </div>
             <ShimmerButton
               style={{ fontSize: 12, padding: "15px 32px", background: C.accent, color: C.black, flexShrink: 0 }}
-              onClick={() => navigate("/contato")}
+              onClick={() => window.open("https://tally.so/r/lbVBL5", "_blank")}
             >
               SOLICITAR ANÁLISE GRATUITA
             </ShimmerButton>
@@ -611,7 +611,7 @@ const Index = () => {
                 </h2>
               </div>
               <p style={{ fontSize: 16, fontWeight: 300, color: fg(4), opacity: 0.5, lineHeight: 1.7 }}>
-                Não vendemos energia solar. Entregamos uma decisão financeira segura — com projeto bem dimensionado, prazo cumprido e acompanhamento real.
+                Não vendemos apenas energia solar. Entregamos uma decisão financeira segura — com um projeto bem dimensionado, prazos cumpridos e acompanhamento contínuo.
               </p>
             </div>
           </RevealOnScroll>
@@ -620,26 +620,26 @@ const Index = () => {
             {[
               {
                 icon: <Building2 size={22} />,
-                title: "Foco em Industrial",
-                desc: "Especialistas em sistemas de grande porte para empresas com alto consumo energético — sem adaptar solução residencial para indústria.",
+                title: "Foco Industrial",
+                desc: "Especialistas em sistemas de grande escala para empresas com elevado consumo energético, sem adaptar soluções residenciais à indústria.",
                 highlight: true,
               },
               {
                 icon: <TrendingDown size={22} />,
-                title: "Retorno comprovado antes de decidir",
-                desc: "Apresentamos o retorno financeiro detalhado antes de qualquer contratação. Você decide com números reais na mão.",
+                title: "Retorno comprovado antes da decisão",
+                desc: "Apresentamos o retorno financeiro detalhado antes de qualquer contratação. Decida com base em dados reais.",
                 highlight: false,
               },
               {
                 icon: <Clock size={22} />,
                 title: "Processo do início ao fim",
-                desc: "Projeto técnico, instalação, homologação e pós-venda — tudo com equipe própria, sem terceirizar nenhuma etapa.",
+                desc: "Projeto técnico, instalação, homologação e pós-venda, tudo assegurado por equipa própria, sem subcontratação.",
                 highlight: false,
               },
               {
                 icon: <Zap size={22} />,
                 title: "Compromisso com prazos",
-                desc: "Cada etapa tem prazo definido e acompanhamento direto. Sem surpresas, sem atrasos sem justificativa.",
+                desc: "Cada etapa tem prazos definidos e acompanhamento direto. Sem surpresas e sem atrasos injustificados.",
                 highlight: false,
               },
             ].map((s, i) => (
@@ -687,10 +687,10 @@ const Index = () => {
             borderLeft: `1px solid ${C.accent}25`,
           }}>
             {[
-              { icon: <TrendingDown size={28} />, value: "até 95%",    label: "Redução na fatura",          desc: "A maioria das empresas chega próxima a zero no gasto com eletricidade." },
-              { icon: <Clock size={28} />,        value: "3 a 5 anos", label: "Retorno do investimento",    desc: "Após o payback, energia essencialmente gratuita por mais de 20 anos." },
-              { icon: <Zap size={28} />,          value: "previsível", label: "Custo de energia",           desc: "Sai da imprevisibilidade da rede elétrica para um custo controlado." },
-              { icon: <Building2 size={28} />,    value: "25 anos",    label: "Vida útil dos painéis",      desc: "Com garantia de performance pelo fabricante durante toda a vida útil." },
+              { icon: <TrendingDown size={28} />, value: "Até 95%",    label: "Redução na fatura",          desc: "A maioria das empresas passa a ter um custo energético próximo de zero." },
+              { icon: <Clock size={28} />,        value: "3 a 5 anos", label: "Retorno do investimento",    desc: "Após o payback, a energia torna-se praticamente gratuita durante mais de 20 anos." },
+              { icon: <Zap size={28} />,          value: "Previsível", label: "Custo de energia",           desc: "Elimine a imprevisibilidade da rede elétrica e passe a ter um custo controlado." },
+              { icon: <Building2 size={28} />,    value: "25 anos",    label: "Vida útil dos painéis",      desc: "Com garantia de desempenho do fabricante ao longo de toda a vida útil." },
             ].map((item, i) => (
               <RevealOnScroll key={i} delay={i * 0.1}>
                 <div style={{
@@ -740,16 +740,16 @@ const Index = () => {
                 fontFamily: "'Encode Sans Expanded', sans-serif",
                 fontSize: isMobile ? 26 : 38, fontWeight: 800, color: fg(6), lineHeight: 1.15, marginBottom: 24,
               }}>
-                <WordReveal text="Especialistas em energia solar para indústria" style={{ color: fg(6) }} />
+                <WordReveal text="Especialistas em energia solar para a indústria" style={{ color: fg(6) }} />
               </h2>
               <p style={{ fontSize: 16, fontWeight: 300, color: fg(6), opacity: 0.5, lineHeight: 1.75, marginBottom: 16 }}>
-                A Voltaic nasceu com um objetivo claro: ser a empresa que entrega energia solar industrial com critério técnico, segurança no investimento e comprometimento real com o resultado do cliente.
+                A Voltaic nasceu com um objetivo claro: ser a empresa que fornece energia solar industrial com critério técnico, segurança no investimento e compromisso real com os resultados do cliente.
               </p>
               <p style={{ fontSize: 16, fontWeight: 300, color: fg(6), opacity: 0.5, lineHeight: 1.75, marginBottom: 16 }}>
-                Não terceirizamos instalação nem suporte técnico. Cada projeto é acompanhado de perto — do dimensionamento até a homologação final.
+                Não subcontratamos a instalação nem o suporte técnico. Cada projeto é acompanhado de perto, desde o dimensionamento até à homologação final.
               </p>
               <p style={{ fontSize: 16, fontWeight: 300, color: fg(6), opacity: 0.5, lineHeight: 1.75, marginBottom: 48 }}>
-                Trabalhamos com equipamentos de primeira linha, projeto bem dimensionado e prazos que são cumpridos. Sem promessa de resultado que não conseguimos provar antes.
+                Trabalhamos com equipamentos de primeira linha, projetos bem dimensionados e prazos cumpridos. Não fazemos promessas de resultados que não possamos comprovar previamente.
               </p>
 
               <div className="grid grid-cols-3 gap-6" style={{ paddingTop: 32, borderTop: `1px solid ${bdr(6)}` }}>
@@ -766,9 +766,12 @@ const Index = () => {
       </section>
 
       {/* ── CTA FINAL ── */}
-      <section className="relative" style={{ backgroundColor: "#0f1a2e", padding: "100px 24px", overflow: "hidden" }}>
+      <section className="relative" style={{ padding: "100px 24px", overflow: "hidden", backgroundImage: "url('/paineis-solares-05.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}>
         <SectionBadge n="08" label="CTA" light />
 
+        {/* Overlay escuro */}
+        <div className="absolute inset-0 pointer-events-none" style={{ backgroundColor: "rgba(7,11,22,0.35)" }} />
+        {/* Grid texture */}
         <div className="absolute inset-0 pointer-events-none" style={{
           backgroundImage: `linear-gradient(${C.white}08 1px, transparent 1px), linear-gradient(90deg, ${C.white}08 1px, transparent 1px)`,
           backgroundSize: "60px 60px",
@@ -783,15 +786,15 @@ const Index = () => {
               fontFamily: "'Encode Sans Expanded', sans-serif",
               fontSize: isMobile ? 28 : 40, fontWeight: 800, color: "#fff", lineHeight: 1.15, marginBottom: 20,
             }}>
-              <WordReveal text="Avalie agora quanto sua empresa pode economizar na conta de energia" style={{ color: "#fff" }} />
+              <WordReveal text="Avalie agora quanto a sua empresa pode poupar na fatura de energia" style={{ color: "#fff" }} />
             </h2>
             <p style={{ fontSize: 17, fontWeight: 300, color: "#fff", opacity: 0.7, lineHeight: 1.7, marginBottom: 48 }}>
-              Solicite uma análise técnica e veja, com base no consumo da sua empresa, quanto sua empresa pode reduzir nos custos de energia.
+              Solicite uma análise técnica e veja, com base no consumo da sua empresa, quanto poderá reduzir nos custos de energia.
             </p>
             <div className="flex items-center justify-center gap-5 flex-wrap">
               <ShimmerButton
                 style={{ fontSize: 12, padding: "15px 30px", background: C.accent, color: C.black }}
-                onClick={() => navigate("/contato")}
+                onClick={() => window.open("https://tally.so/r/lbVBL5", "_blank")}
               >
                 SOLICITAR ANÁLISE GRATUITA
               </ShimmerButton>
@@ -813,15 +816,15 @@ const Index = () => {
                 fontFamily: "'Encode Sans Expanded', sans-serif",
                 fontSize: isMobile ? 26 : 36, fontWeight: 800, color: fg(8), lineHeight: 1.2, marginBottom: 15,
               }}>
-                <WordReveal text="Perguntas que todo empresário faz antes de decidir" style={{ color: fg(8) }} />
+                <WordReveal text="Perguntas que todos os empresários fazem antes de decidir" style={{ color: fg(8) }} />
               </h2>
               <p style={{ fontSize: 16, fontWeight: 300, color: fg(8), opacity: 0.45, lineHeight: 1.7, marginBottom: 40 }}>
-                Se ainda tiver dúvidas, entre em contato diretamente. Respondemos todas.
+                Se ainda tiver dúvidas, entre em contacto connosco diretamente. Respondemos a todas.
               </p>
 
               <div id="contato" style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                 {[
-                  { icon: <MessageCircle size={18} />, title: "Atendimento por WhatsApp", sub: "Clique aqui para tirar suas dúvidas" },
+                  { icon: <MessageCircle size={18} />, title: "Atendimento por WhatsApp", sub: "Clique aqui para esclarecer as suas dúvidas" },
                   { icon: <Mail size={18} />,          title: "Atendimento por E-mail",   sub: "info@originalvoltaic.com"          },
                 ].map((c, i) => (
                   <a
