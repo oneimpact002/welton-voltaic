@@ -858,7 +858,7 @@ const Index = () => {
       </section>
 
       {/* ── INDIQUE E RECEBA ── */}
-      <section className="relative" style={{ background: C.navy, padding: "100px 24px" }}>
+      <section className="relative" style={{ background: C.navy, padding: isMobile ? "50px 24px 100px" : "100px 24px" }}>
         <RevealOnScroll>
           <div className={inner}>
             <div className="text-center" style={{
