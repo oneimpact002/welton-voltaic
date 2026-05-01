@@ -857,6 +857,36 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ── INDIQUE E RECEBA ── */}
+      <section className="relative" style={{ background: C.accent, padding: "100px 24px", overflow: "hidden" }}>
+        <div className="absolute inset-0 pointer-events-none" style={{
+          backgroundImage: `linear-gradient(${C.black}08 1px, transparent 1px), linear-gradient(90deg, ${C.black}08 1px, transparent 1px)`,
+          backgroundSize: "60px 60px",
+        }} />
+        <RevealOnScroll>
+          <div className={`${inner} text-center`} style={{ position: "relative" }}>
+            <p style={{ fontSize: 11, letterSpacing: "0.2em", color: C.black, opacity: 0.5, textTransform: "uppercase", marginBottom: 16 }}>
+              Programa de indicação
+            </p>
+            <h2 style={{
+              fontFamily: "'Encode Sans Expanded', sans-serif",
+              fontSize: isMobile ? 30 : 48, fontWeight: 800, color: C.black, lineHeight: 1.1, marginBottom: 24,
+            }}>
+              Indique e receba
+            </h2>
+            <p style={{ fontSize: isMobile ? 16 : 18, fontWeight: 300, color: C.black, opacity: 0.65, lineHeight: 1.75, marginBottom: 48, maxWidth: 580, marginLeft: "auto", marginRight: "auto" }}>
+              Se conhece uma empresa que pode beneficiar de energia solar, indique-nos. Oferecemos entre <strong>100€ e 900€</strong> por cada instalação realizada através da sua recomendação.
+            </p>
+            <ShimmerButton
+              style={{ fontSize: 12, padding: "15px 32px", background: C.black, color: C.white }}
+              onClick={() => window.open("https://tally.so/r/lbVBL5", "_blank")}
+            >
+              FAZER UMA INDICAÇÃO
+            </ShimmerButton>
+          </div>
+        </RevealOnScroll>
+      </section>
+
       {/* ── RODAPÉ ── */}
       <footer style={{ background: bg(9), padding: "64px 24px 32px" }}>
         <div className={inner}>
