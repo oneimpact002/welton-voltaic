@@ -33,23 +33,6 @@ const fg  = (s: number) => DARK_SLOTS.has(s) || ORANGE_SLOTS.has(s) ? C.white : 
 const hi  = (s: number) => DARK_SLOTS.has(s) || ORANGE_SLOTS.has(s) ? C.accentLight : C.accent;
 const bdr = (s: number) => DARK_SLOTS.has(s) || ORANGE_SLOTS.has(s) ? `${C.white}18` : `${C.black}12`;
 
-function SectionBadge({ n, label, light = false }: { n: string; label: string; light?: boolean }) {
-  return (
-    <div
-      className="absolute left-5 top-1/2 -translate-y-1/2 pointer-events-none select-none hidden lg:flex"
-      style={{ opacity: 0.14, flexDirection: "column", alignItems: "center", gap: 8 }}
-    >
-      <span style={{
-        fontSize: 9, fontWeight: 600, fontFamily: "monospace",
-        color: light ? C.white : C.black,
-        writingMode: "vertical-rl", transform: "rotate(180deg)",
-        letterSpacing: "0.18em", textTransform: "uppercase",
-      }}>
-        {n} · {label}
-      </span>
-    </div>
-  );
-}
 
 const faqs = [
   {
@@ -263,7 +246,7 @@ const Index = () => {
           alignItems: "center",
         }}
       >
-        <SectionBadge n="01" label="Hero" light />
+
 
         <div className="absolute inset-0 pointer-events-none" style={{
           backgroundImage: `linear-gradient(${C.white}0a 1px, transparent 1px), linear-gradient(90deg, ${C.white}0a 1px, transparent 1px)`,
@@ -387,7 +370,7 @@ const Index = () => {
 
       {/* ── FAIXA NÚMEROS ── */}
       <section style={{ background: bg(1), padding: "106px 24px 6px" }}>
-        <SectionBadge n="02" label="Números" light />
+
         <RevealOnScroll>
           <div className={inner}>
             {(() => {
@@ -422,13 +405,13 @@ const Index = () => {
 
       {/* ── PROBLEMA ── */}
       <section className="relative" style={{ background: bg(2), padding: "112px 24px" }}>
-        <SectionBadge n="03" label="Problema" light />
+
         <div className={`${inner} grid grid-cols-1 lg:grid-cols-2 gap-20 items-center`}>
           <RevealOnScroll delay={0}>
             <div style={{ position: "relative" }}>
               <div style={{ aspectRatio: "4/5", borderRadius: 8, overflow: "hidden" }}>
                 <img
-                  src="/paineis-solares-03.jpg"
+                  src="/welton-voltaic-paineis-solares-06.jpg"
                   alt="Painéis solares industriais Voltaic"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
@@ -485,13 +468,13 @@ const Index = () => {
           <RevealOnScroll delay={0.15}>
             <div>
               <p style={{ fontSize: 11, letterSpacing: "0.2em", color: hi(2), textTransform: "uppercase", marginBottom: 15 }}>
-                O problema
+                Energia mais eficiente
               </p>
               <h2 style={{
                 fontFamily: "'Encode Sans Expanded', sans-serif",
                 fontSize: isMobile ? 26 : 38, fontWeight: 800, color: fg(2), lineHeight: 1.15, marginBottom: 30,
               }}>
-                <WordReveal text="Aumente as suas horas de Sol, reduza a sua fatura de eletricidade" style={{ color: fg(2) }} />
+                <WordReveal text="Aumente as suas horas de sol, reduza a sua fatura de eletricidade" style={{ color: fg(2) }} />
               </h2>
               <ul style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 {[
@@ -515,7 +498,7 @@ const Index = () => {
 
       {/* ── COMO FUNCIONA ── */}
       <section id="como-funciona" className="relative" style={{ background: bg(3), padding: isMobile ? "12px 24px 112px" : "62px 24px 112px" }}>
-        <SectionBadge n="04" label="Como Funciona" light />
+
         <div className={inner}>
           <RevealOnScroll>
             <div style={{ marginBottom: 64, maxWidth: 560 }}>
@@ -600,7 +583,7 @@ const Index = () => {
 
       {/* ── DIFERENCIAIS ── */}
       <section id="diferenciais" className="relative" style={{ background: bg(4), padding: "112px 24px 22px" }}>
-        <SectionBadge n="05" label="Diferenciais" light />
+
         <div className={inner}>
           <RevealOnScroll>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-end" style={{ marginBottom: 56 }}>
@@ -671,7 +654,7 @@ const Index = () => {
 
       {/* ── SOBRE ── */}
       <section id="sobre" className="relative" style={{ background: bg(6), padding: "112px 24px" }}>
-        <SectionBadge n="07" label="Sobre" light />
+
         <div className={`${inner} grid grid-cols-1 lg:grid-cols-2 gap-20 items-center`}>
           <RevealOnScroll delay={0}>
             <div style={{ position: "relative" }}>
@@ -725,7 +708,7 @@ const Index = () => {
 
       {/* ── CTA FINAL ── */}
       <section className="relative" style={{ padding: "100px 24px", overflow: "hidden", backgroundImage: "url('/paineis-solares-05.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}>
-        <SectionBadge n="08" label="CTA" light />
+
 
         {/* Overlay escuro */}
         <div className="absolute inset-0 pointer-events-none" style={{ backgroundColor: "rgba(7,11,22,0.35)" }} />
@@ -763,7 +746,6 @@ const Index = () => {
 
       {/* ── FAQ ── */}
       <section id="faq" className="relative" style={{ background: bg(8), padding: "112px 24px" }}>
-        <SectionBadge n="09" label="FAQ" light />
         <div className={`${inner} grid grid-cols-1 lg:grid-cols-2 gap-20`}>
           <RevealOnScroll delay={0}>
             <div>
@@ -872,13 +854,22 @@ const Index = () => {
                 Navegação
               </p>
               <ul style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                {["Início", "Como Funciona", "Diferenciais", "Sobre", "FAQ"].map((l) => (
-                  <li key={l}>
-                    <a href="#" style={{ fontSize: 14, color: C.white, opacity: 0.35, textDecoration: "none" }}
+                {[
+                  { label: "Início",        id: "inicio"        },
+                  { label: "Como Funciona", id: "como-funciona" },
+                  { label: "Diferenciais",  id: "diferenciais"  },
+                  { label: "Sobre",         id: "sobre"         },
+                  { label: "FAQ",           id: "faq"           },
+                ].map(({ label, id }) => (
+                  <li key={id}>
+                    <a
+                      href={`#${id}`}
+                      onClick={(e) => { e.preventDefault(); scrollTo(id); }}
+                      style={{ fontSize: 14, color: C.white, opacity: 0.35, textDecoration: "none", cursor: "pointer" }}
                       onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
                       onMouseLeave={e => (e.currentTarget.style.opacity = "0.35")}
                     >
-                      {l}
+                      {label}
                     </a>
                   </li>
                 ))}
