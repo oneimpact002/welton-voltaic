@@ -267,7 +267,7 @@ const Index = () => {
             }}>
               <span style={{ width: 5, height: 5, borderRadius: "50%", backgroundColor: C.accent, flexShrink: 0 }} />
               <span style={{ fontSize: 10, letterSpacing: "0.2em", color: C.accent, textTransform: "uppercase", fontWeight: 700 }}>
-                Energia Solar para Empresas e Indústrias
+                Energia Solar para Empresas e Residências
               </span>
             </div>
 
@@ -276,8 +276,8 @@ const Index = () => {
               fontSize: isMobile ? 28 : 42, fontWeight: 800, lineHeight: 1.1,
               color: C.white, marginBottom: 28,
             }}>
-              <WordReveal text="Reduza o custo de energia" style={{ color: C.accentLight, display: "block" }} delay={0.1} />
-              <WordReveal text="da sua indústria com uma solução que se paga ao longo do tempo" style={{ color: C.white, display: "block" }} delay={0.28} />
+              <WordReveal text="Reduza o custo de energia da sua fatura" style={{ color: C.accentLight, display: "block" }} delay={0.1} />
+              <WordReveal text="com uma solução que se paga ao longo do tempo" style={{ color: C.white, display: "block" }} delay={0.28} />
             </h1>
 
             <p style={{
@@ -474,7 +474,7 @@ const Index = () => {
                 fontFamily: "'Encode Sans Expanded', sans-serif",
                 fontSize: isMobile ? 26 : 38, fontWeight: 800, color: fg(2), lineHeight: 1.15, marginBottom: 30,
               }}>
-                <WordReveal text="Aumente as suas horas de sol, reduza a sua fatura de eletricidade" style={{ color: fg(2) }} />
+                <WordReveal text="Uma forma mais eficiente de consumir energia" style={{ color: fg(2) }} />
               </h2>
               <ul style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 {[
@@ -483,7 +483,7 @@ const Index = () => {
                   "Reduza a dependência total da rede",
                   "Aproveite mais o seu dinheiro, em novos investimentos",
                   "Venda o seu excedente e fature um pouco mais ",
-                  "Diminua a emissão de CO2 e ajude o Planeta",
+                  "Diminua a emissão de CO2 e ajude o planeta",
                 ].map((text, i) => (
                   <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
                     <XCircle size={18} style={{ color: `${C.accent}80`, flexShrink: 0, marginTop: 2 }} />
