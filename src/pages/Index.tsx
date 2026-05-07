@@ -6,6 +6,7 @@ import {
   MessageCircle, Mail, XCircle,
   Building2, Zap, TrendingDown, Clock,
   ShieldCheck, Settings2, BarChart2,
+  Sun, BatteryCharging, FileCheck,
 } from "lucide-react";
 import WordReveal from "@/components/WordReveal";
 import ShimmerButton from "@/components/ShimmerButton";
@@ -52,25 +53,29 @@ function SectionBadge({ n, label, light = false }: { n: string; label: string; l
 
 const faqs = [
   {
-    q: "Vale a pena investir em energia solar para a minha empresa?",
-    a: "Sim, especialmente se a sua empresa tem um consumo elevado de eletricidade. A energia solar permite reduzir significativamente a fatura de energia e transformar um custo fixo num investimento com retorno ao longo do tempo. Muitas empresas procuram exatamente isso: diminuir despesas operacionais e ganhar previsibilidade financeira. Entre em contacto connosco e esclareça as suas dúvidas com uma análise técnica.",
+    q: "Vale a pena investir em energia solar?",
+    a: "A energia solar permite reduzir significativamente a fatura de energia e transformar um custo fixo num investimento com retorno ao longo do tempo.",
   },
   {
     q: "Em quanto tempo recupero o investimento em energia solar?",
-    a: "O tempo de retorno depende do consumo energético da empresa e da dimensão da instalação, mas na maioria dos casos situa-se entre alguns anos. O mais importante é que, após esse período, a empresa passa a gerar poupança contínua na conta de eletricidade, reduzindo custos de forma consistente. Fale com a nossa equipa e veja quanto pode reduzir nos seus custos de energia.",
+    a: "O tempo de retorno depende do seu consumo energético e do dimensionamento eficaz da sua instalação, mas na maioria dos casos situase entre os 5 à 7 anos.",
   },
   {
-    q: "A energia solar reduz mesmo a conta de eletricidade?",
-    a: "Sim, quando o sistema é corretamente dimensionado, é possível reduzir uma grande parte da fatura de energia. O objetivo é adaptar a solução ao consumo real da empresa, garantindo uma redução efetiva e sustentável ao longo do tempo. Fale com a nossa equipa e veja quanto pode reduzir nos seus custos de energia.",
+    q: "Quanto tempo dura um painel solar?",
+    a: "Os painéis solares têm uma vida útil média de 25 a 30 anos.",
+  },
+  {
+    q: "Posso armazenar energia solar para uso posterior?",
+    a: "Sim, é possível armazenar a energia solar com a instalação de baterias.",
+  },
+  {
+    q: "Como monitorizo o meu sistema de energia solar?",
+    a: "A maioria dos sistemas solares modernos vem equipada com plataformas de monitorização online ou aplicações móveis.",
   },
   {
     q: "Como saber se a energia solar faz sentido para o meu caso?",
-    a: "A forma mais segura é através de uma análise técnica ao consumo energético da empresa. É com base nesses dados que se avalia o potencial de poupança, o investimento necessário e o retorno esperado. Sem essa análise, qualquer decisão será baseada apenas em estimativas genéricas. Entre em contacto connosco e esclareça as suas dúvidas com uma análise técnica.",
-  },
-  {
-    q: "O que diferencia esta solução de outras empresas de energia solar?",
-    a: "A principal diferença está no processo completo e personalizado. Desde a análise inicial até à instalação e acompanhamento, o foco é garantir uma solução adaptada ao consumo da empresa, com qualidade na execução e compromisso com os resultados. Isso reduz riscos e aumenta a confiança na decisão. Fale com um especialista e descubra se esta solução faz sentido para a sua empresa.",
-  },
+    a: "A forma mais segura é através de uma análise técnica ao seu consumo energético. É com base nesses dados que se avalia o potencial de poupança, o investimento necessário e o retorno esperado.",
+  }
 ];
 
 function FAQAccordion() {
@@ -296,7 +301,7 @@ const Index = () => {
               fontSize: 17, fontWeight: 300, color: C.white, opacity: 0.5,
               lineHeight: 1.75, marginBottom: 48, maxWidth: 480,
             }}>
-              Uma solução concebida para indústrias com elevado consumo, que transforma os custos com energia em poupança real ao longo do tempo.
+              Nosso objetivo é renovar o consumo energético e reduzir a sua emissão de dióxido de carbono, através da instalação e manutenção de soluções de energia solar, totalmente adaptadas às necessidades de cada cliente.
             </p>
 
             <div className="flex items-center gap-6 flex-wrap">
@@ -327,7 +332,7 @@ const Index = () => {
               border: "1px solid #e4c125ad",
             }}>
               <CounterUp
-                to={80} prefix="Até " suffix="%"
+                to={90} prefix="Até " suffix="%"
                 style={{ fontSize: 28, fontWeight: 800, color: C.white, lineHeight: 1, display: "block" }}
               />
               <p style={{ fontSize: 12, color: C.white, opacity: 0.4, marginTop: 4 }}>de redução na fatura</p>
@@ -355,7 +360,7 @@ const Index = () => {
               border: "1px solid #e4c125ad",
             }}>
               <CounterUp
-                to={80} prefix="Até " suffix="%"
+                to={90} prefix="Até " suffix="%"
                 style={{ fontSize: 32, fontWeight: 800, color: C.white, lineHeight: 1, display: "block" }}
               />
               <p style={{ fontSize: 14, color: C.white, opacity: 0.4, marginTop: 5 }}>de redução na fatura</p>
@@ -385,31 +390,32 @@ const Index = () => {
         <SectionBadge n="02" label="Números" light />
         <RevealOnScroll>
           <div className={inner}>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-0" style={{
-              borderTop: `1px solid ${C.white}14`,
-              borderLeft: `1px solid ${C.white}14`,
-            }}>
-              {[
-                { icon: ShieldCheck, text: "Garanta mais controlo sobre os seus custos de energia" },
-                { icon: Settings2,   text: "Tenha uma solução adaptada ao consumo da sua empresa"  },
-                { icon: BarChart2,   text: "Reduza seus custos operacionais de forma consistente"  },
-              ].map(({ icon: Icon, text }, i) => (
-                <div
-                  key={i}
-                  className="card-hover-bg"
-                  style={{
-                    padding: "40px 32px",
-                    border: `1px solid ${C.white}14`,
-                    cursor: "default",
-                  }}
-                >
+            {(() => {
+              const cards = [
+                { icon: Sun,             title: "Autoconsumo", text: "Produza a sua própria energia em casa e reduza significativamente a sua fatura de eletricidade." },
+                { icon: BatteryCharging, title: "Autoconsumo com baterias", text: "Com esse sistema a energia produzida durante o dia, não se perde. Armazene o excedente para utiliza-lo quando necessitar." },
+                { icon: Building2,       title: "Empresas", text: "Redução significativa dos custos de eletricidade e o retorno do investimento em curto prazo." },
+                { icon: FileCheck,       title: "Registro na DGEG", text: "Tratamos e enviamos toda a respectiva documentação, para legalização da sua instalação." },
+                { icon: TrendingDown,    title: "Melhor custo benefício", text: "Aumente suas horas de sol, reduza na sua fatura de eletricidade." },
+              ];
+              const CardItem = ({ icon: Icon, title, text }: typeof cards[0]) => (
+                <div className="card-hover-bg" style={{ padding: "40px 32px", border: `1px solid ${C.white}14`, cursor: "default" }}>
                   <Icon size={28} color={C.accent} style={{ marginBottom: 16 }} />
-                  <p style={{ fontSize: 16, fontWeight: 600, color: C.white, lineHeight: 1.5 }}>
-                    {text}
-                  </p>
+                  {title && <p style={{ fontSize: 18, fontWeight: 700, color: C.white, lineHeight: 1.3, marginBottom: 8 }}>{title}</p>}
+                  <p style={{ fontSize: 16, fontWeight: 300, color: C.white, opacity: 0.5, lineHeight: 1.7 }}>{text}</p>
                 </div>
-              ))}
-            </div>
+              );
+              return (
+                <>
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-0" style={{ borderTop: `1px solid ${C.white}14`, borderLeft: `1px solid ${C.white}14` }}>
+                    {cards.slice(0, 3).map((card, i) => <CardItem key={i} {...card} />)}
+                  </div>
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:w-2/3 lg:mx-auto" style={{ borderLeft: `1px solid ${C.white}14` }}>
+                    {cards.slice(3).map((card, i) => <CardItem key={i} {...card} />)}
+                  </div>
+                </>
+              );
+            })()}
           </div>
         </RevealOnScroll>
       </section>
@@ -441,23 +447,23 @@ const Index = () => {
                 boxShadow: "0 8px 32px rgba(0,0,0,0.35)",
                 minWidth: 200,
               }}>
-                <p style={{ fontSize: 28, fontWeight: 800, color: C.white, lineHeight: 1, fontFamily: "'Encode Sans Expanded', sans-serif", marginBottom: 4 }}>
-                  até 100%
+                <p style={{ fontSize: 23, fontWeight: 800, color: C.white, lineHeight: 1, fontFamily: "'Encode Sans Expanded', sans-serif", marginBottom: 4 }}>
+                  Poupe até 90%
                 </p>
-                <p style={{ fontSize: 12, fontWeight: 300, color: C.white, opacity: 0.6, lineHeight: 1.4, marginBottom: 14 }}>
-                  de aumento no custo da energia
+                <p style={{ fontSize: 15, fontWeight: 300, color: C.white, opacity: 0.6, lineHeight: 1.4, marginBottom: 14 }}>
+                  na redução da fatura
                 </p>
 
                 {/* Mini gráfico de barras */}
                 <svg width="100%" height="48" viewBox="0 0 160 48" preserveAspectRatio="none">
                   {[
-                    { x: 0,   h: 22 },
-                    { x: 24,  h: 28 },
-                    { x: 48,  h: 32 },
+                    { x: 0,   h: 48 },
+                    { x: 24,  h: 44 },
+                    { x: 48,  h: 40 },
                     { x: 72,  h: 36 },
-                    { x: 96,  h: 40 },
-                    { x: 120, h: 44 },
-                    { x: 144, h: 48 },
+                    { x: 96,  h: 32 },
+                    { x: 120, h: 28 },
+                    { x: 144, h: 22 },
                   ].map((bar, i, arr) => (
                     <rect
                       key={i}
@@ -465,7 +471,7 @@ const Index = () => {
                       width={16} height={bar.h}
                       rx={3}
                       fill={C.accent}
-                      opacity={0.2 + i * 0.12}
+                      opacity={0.2 + (arr.length - 1 - i) * 0.12}
                     />
                   ))}
                 </svg>
@@ -483,20 +489,18 @@ const Index = () => {
               </p>
               <h2 style={{
                 fontFamily: "'Encode Sans Expanded', sans-serif",
-                fontSize: isMobile ? 26 : 38, fontWeight: 800, color: fg(2), lineHeight: 1.15, marginBottom: 15,
+                fontSize: isMobile ? 26 : 38, fontWeight: 800, color: fg(2), lineHeight: 1.15, marginBottom: 30,
               }}>
-                <WordReveal text="A energia cara está a consumir o lucro da sua empresa" style={{ color: fg(2) }} />
+                <WordReveal text="Aumente as suas horas de Sol, reduza a sua fatura de eletricidade" style={{ color: fg(2) }} />
               </h2>
-              <p style={{ fontSize: 16, fontWeight: 300, color: fg(2), opacity: 0.5, lineHeight: 1.7, marginBottom: 40 }}>
-                Para indústrias com equipamentos de elevada potência, a fatura de eletricidade é uma das maiores despesas fixas — e continua a aumentar todos os anos, sem que haja margem de controlo.
-              </p>
               <ul style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 {[
-                  "Fatura de energia que aumenta a cada revisão tarifária",
-                  "Despesa que poderia estar a financiar o crescimento do negócio",
-                  "Dependência total da distribuidora e das tarifas de energia",
-                  "Custo imprevisível que dificulta o planeamento financeiro",
-                  "Dinheiro a sair todos os meses sem qualquer retorno",
+                  "Faturas de energia reduzidas",
+                  "Retorno do seu investimento, já na próxima fatura ",
+                  "Reduza a dependência total da rede",
+                  "Aproveite mais o seu dinheiro, em novos investimentos",
+                  "Venda o seu excedente e fature um pouco mais ",
+                  "Diminua a emissão de CO2 e ajude o Planeta",
                 ].map((text, i) => (
                   <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
                     <XCircle size={18} style={{ color: `${C.accent}80`, flexShrink: 0, marginTop: 2 }} />
@@ -516,28 +520,29 @@ const Index = () => {
           <RevealOnScroll>
             <div style={{ marginBottom: 64, maxWidth: 560 }}>
               <p style={{ fontSize: 11, letterSpacing: "0.2em", color: hi(3), textTransform: "uppercase", marginBottom: 16 }}>
-                O processo
+                Passo a Passo
               </p>
               <h2 style={{
                 fontFamily: "'Encode Sans Expanded', sans-serif",
                 fontSize: isMobile ? 26 : 38, fontWeight: 800, color: fg(3), lineHeight: 1.15,
               }}>
-                <WordReveal text="Do diagnóstico à energia em funcionamento" style={{ color: fg(3) }} />
+                <WordReveal text="É fácil obter a sua independência energética em pouco tempo" style={{ color: fg(3) }} />
               </h2>
             </div>
           </RevealOnScroll>
 
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-0 relative" style={{ gap: isMobile ? 30 : 0 }}>
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-0 relative" style={{ gap: isMobile ? 30 : 0 }}>
             <div className="hidden lg:block absolute" style={{
-              top: 22, left: "12.5%", right: "12.5%", height: 1,
-              background: `linear-gradient(to right, transparent, ${C.accent}40, ${C.accent}40, transparent)`,
+              top: 22, left: "1%", right: "10%", height: 1,
+              background: `linear-gradient(to right, transparent, ${C.accent}50, ${C.accent}40, transparent)`,
             }} />
 
             {[
-              { n: "01", title: "Análise técnica",      desc: "Avaliamos o consumo real da sua empresa e o potencial de produção antes de qualquer proposta." },
-              { n: "02", title: "Proposta com retorno",  desc: "Dimensionamos o sistema ideal e apresentamos o retorno financeiro detalhado — sem promessas vagas." },
-              { n: "03", title: "Instalação",            desc: "A nossa equipa realiza a instalação com segurança e cumprimento de prazos — sem subcontratação." },
-              { n: "04", title: "Homologação e uso",     desc: "Tratamos de toda a burocracia com a distribuidora. Só tem de ligar o sistema e começar a poupar." },
+              { n: "01", title: "Contacto",      desc: "Avaliamos o seu consumo real e o potencial de produção antes de qualquer proposta." },
+              { n: "02", title: "Aceitação da proposta",  desc: "Dimensionamos o sistema ideal e apresentamos o retorno financeiro detalhado." },
+              { n: "03", title: "Visita técnica",            desc: "Nosso técnico avaliará a instalação fotovoltaica e validará a viabilidade do projeto, com execução própria, segura e dentro do prazo." },
+              { n: "04", title: "Instalação",     desc: "Nossa equipe realiza a instalação com segurança e cumprimento de prazos." },
+              { n: "05", title: "Legalização",           desc: "Tratamos e enviamos toda a respectiva documentação para registo na DGEG. Agora já está pronto para começar a poupar." },
             ].map((s, i) => (
               <RevealOnScroll key={i} delay={i * 0.12}>
                 <div style={{ padding: "0 20px 0 0", position: "relative" }}>
@@ -594,7 +599,7 @@ const Index = () => {
       </section>
 
       {/* ── DIFERENCIAIS ── */}
-      <section id="diferenciais" className="relative" style={{ background: bg(4), padding: "112px 24px" }}>
+      <section id="diferenciais" className="relative" style={{ background: bg(4), padding: "112px 24px 22px" }}>
         <SectionBadge n="05" label="Diferenciais" light />
         <div className={inner}>
           <RevealOnScroll>
@@ -607,7 +612,7 @@ const Index = () => {
                   fontFamily: "'Encode Sans Expanded', sans-serif",
                   fontSize: isMobile ? 26 : 38, fontWeight: 800, color: fg(4), lineHeight: 1.15,
                 }}>
-                  <WordReveal text="Segurança no investimento, clareza no retorno" style={{ color: fg(4) }} />
+                  <WordReveal text="Qualidade, eficiência e acompanhamento no pós-venda" style={{ color: fg(4) }} />
                 </h2>
               </div>
               <p style={{ fontSize: 16, fontWeight: 300, color: fg(4), opacity: 0.5, lineHeight: 1.7 }}>
@@ -621,7 +626,7 @@ const Index = () => {
               {
                 icon: <Building2 size={22} />,
                 title: "Foco Industrial",
-                desc: "Especialistas em sistemas de grande escala para empresas com elevado consumo energético, sem adaptar soluções residenciais à indústria.",
+                desc: "Especialistas em sistemas de grande escala para empresas com elevado consumo energético, ajudamos a diminuir a sua fatura e na redução de emissão de CO2.",
                 highlight: true,
               },
               {
@@ -664,53 +669,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* ── IMPACTO ── */}
-      <section className="relative" style={{ background: bg(5), padding: isMobile ? "12px 24px" : "62px 24px" }}>
-        <SectionBadge n="06" label="Impacto" light />
-        <div className={inner}>
-          <RevealOnScroll>
-            <div style={{ marginBottom: 64, maxWidth: 640 }}>
-              <p style={{ fontSize: 11, letterSpacing: "0.2em", color: C.accent, textTransform: "uppercase", marginBottom: 16 }}>
-                O que muda na prática
-              </p>
-              <h2 style={{
-                fontFamily: "'Encode Sans Expanded', sans-serif",
-                fontSize: isMobile ? 26 : 38, fontWeight: 800, color: fg(5), lineHeight: 1.15,
-              }}>
-                <WordReveal text="Energia deixa de ser custo e passa a ser investimento" style={{ color: fg(5) }} />
-              </h2>
-            </div>
-          </RevealOnScroll>
-
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-0" style={{
-            borderTop: `1px solid ${C.accent}25`,
-            borderLeft: `1px solid ${C.accent}25`,
-          }}>
-            {[
-              { icon: <TrendingDown size={28} />, value: "Até 95%",    label: "Redução na fatura",          desc: "A maioria das empresas passa a ter um custo energético próximo de zero." },
-              { icon: <Clock size={28} />,        value: "3 a 5 anos", label: "Retorno do investimento",    desc: "Após o payback, a energia torna-se praticamente gratuita durante mais de 20 anos." },
-              { icon: <Zap size={28} />,          value: "Previsível", label: "Custo de energia",           desc: "Elimine a imprevisibilidade da rede elétrica e passe a ter um custo controlado." },
-              { icon: <Building2 size={28} />,    value: "25 anos",    label: "Vida útil dos painéis",      desc: "Com garantia de desempenho do fabricante ao longo de toda a vida útil." },
-            ].map((item, i) => (
-              <RevealOnScroll key={i} delay={i * 0.1}>
-                <div style={{
-                  padding: "40px 32px",
-                  borderBottom: `1px solid ${C.accent}25`,
-                  borderRight: `1px solid ${C.accent}25`,
-                }}>
-                  <div style={{ color: C.accent, marginBottom: 20 }}>{item.icon}</div>
-                  <p style={{ fontSize: 28, fontWeight: 800, color: fg(5), lineHeight: 1, marginBottom: 8, fontFamily: "'Encode Sans Expanded', sans-serif" }}>
-                    {item.value}
-                  </p>
-                  <p style={{ fontSize: 13, fontWeight: 700, color: fg(5), marginBottom: 8 }}>{item.label}</p>
-                  <p style={{ fontSize: 13, fontWeight: 300, color: fg(5), opacity: 0.45, lineHeight: 1.6 }}>{item.desc}</p>
-                </div>
-              </RevealOnScroll>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── SOBRE ── */}
       <section id="sobre" className="relative" style={{ background: bg(6), padding: "112px 24px" }}>
         <SectionBadge n="07" label="Sobre" light />
@@ -746,10 +704,10 @@ const Index = () => {
                 A Voltaic nasceu com um objetivo claro: ser a empresa que fornece energia solar industrial com critério técnico, segurança no investimento e compromisso real com os resultados do cliente.
               </p>
               <p style={{ fontSize: 16, fontWeight: 300, color: fg(6), opacity: 0.5, lineHeight: 1.75, marginBottom: 16 }}>
-                Não subcontratamos a instalação nem o suporte técnico. Cada projeto é acompanhado de perto, desde o dimensionamento até à homologação final.
+                Cada projeto é acompanhado de perto, desde o dimensionamento até à legalização final.
               </p>
               <p style={{ fontSize: 16, fontWeight: 300, color: fg(6), opacity: 0.5, lineHeight: 1.75, marginBottom: 48 }}>
-                Trabalhamos com equipamentos de primeira linha, projetos bem dimensionados e prazos cumpridos. Não fazemos promessas de resultados que não possamos comprovar previamente.
+                Trabalhamos com equipamentos de qualidade e marcas renomadas no mercado, projetos bem dimensionados e prazos cumpridos. Não fazemos promessas de resultados que não possamos comprovar previamente.
               </p>
 
               <div className="grid grid-cols-3 gap-6" style={{ paddingTop: 32, borderTop: `1px solid ${bdr(6)}` }}>
@@ -816,7 +774,7 @@ const Index = () => {
                 fontFamily: "'Encode Sans Expanded', sans-serif",
                 fontSize: isMobile ? 26 : 36, fontWeight: 800, color: fg(8), lineHeight: 1.2, marginBottom: 15,
               }}>
-                <WordReveal text="Perguntas que todos os empresários fazem antes de decidir" style={{ color: fg(8) }} />
+                <WordReveal text="Tem dúvidas? Nós ajudamos." style={{ color: fg(8) }} />
               </h2>
               <p style={{ fontSize: 16, fontWeight: 300, color: fg(8), opacity: 0.45, lineHeight: 1.7, marginBottom: 40 }}>
                 Se ainda tiver dúvidas, entre em contacto connosco diretamente. Respondemos a todas.
@@ -858,7 +816,7 @@ const Index = () => {
       </section>
 
       {/* ── INDIQUE E RECEBA ── */}
-      <section className="relative" style={{ background: C.navy, padding: isMobile ? "50px 24px 100px" : "100px 24px" }}>
+      <section className="relative" style={{ background: C.navy, padding: isMobile ? "0px 24px 100px" : "40px 24px 100px" }}>
         <RevealOnScroll>
           <div className={inner}>
             <div className="text-center" style={{
