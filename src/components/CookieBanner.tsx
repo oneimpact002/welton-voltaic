@@ -51,7 +51,7 @@ export default function CookieBanner() {
 
       <p style={{ fontSize: 13, color: C.white, opacity: 0.65, lineHeight: 1.6, margin: 0, flex: 1, minWidth: 200 }}>
         Utilizamos cookies para melhorar a sua experiência no site.{" "}
-        <span style={{ opacity: 0.45 }}>Ao continuar, aceita a nossa utilização de cookies.</span>
+        <a href="/politicas" style={{ color: C.white, opacity: 0.45, textDecoration: "underline" }}>Saiba mais na nossa política de privacidade.</a>
       </p>
 
       <div style={{ display: "flex", gap: 10, flexShrink: 0 }}>

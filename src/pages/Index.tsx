@@ -277,7 +277,7 @@ const Index = () => {
               fontSize: isMobile ? 28 : 42, fontWeight: 800, lineHeight: 1.1,
               color: C.white, marginBottom: 28,
             }}>
-              <WordReveal text="Reduza o custo de energia da sua fatura" style={{ color: C.accentLight, display: "block" }} delay={0.1} />
+              <span style={{ background: "linear-gradient(90deg, #fff1a9 0%, #FDE96A 60%, #fff1a9 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text", display: "block" }}>Reduza o custo de energia da sua fatura</span>
               <WordReveal text="com uma solução que se paga ao longo do tempo" style={{ color: C.white, display: "block" }} delay={0.28} />
             </h1>
 
@@ -1005,7 +1005,13 @@ const Index = () => {
             borderTop: `1px solid ${C.white}10`, paddingTop: 24,
             display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12,
           }}>
-            <p style={{ fontSize: 13, color: C.white, opacity: 0.38 }}>© 2026 Voltaic. Todos os direitos reservados.</p>
+            <div style={{ display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
+              <p style={{ fontSize: 13, color: C.white, opacity: 0.38, margin: 0 }}>© 2026 Voltaic. Todos os direitos reservados.</p>
+              <a href="/politicas" style={{ fontSize: 13, color: C.white, opacity: 0.38, textDecoration: "none" }}
+                onMouseEnter={e => (e.currentTarget.style.opacity = "0.7")}
+                onMouseLeave={e => (e.currentTarget.style.opacity = "0.38")}
+              >Política de Privacidade</a>
+            </div>
             <a href="https://oneimpact.com.br/" target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: C.white, opacity: 0.38, textDecoration: "none" }}
               onMouseEnter={e => (e.currentTarget.style.opacity = "0.7")}
               onMouseLeave={e => (e.currentTarget.style.opacity = "0.38")}

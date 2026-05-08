@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import Contato from "./pages/Contato.tsx";
+import Politicas from "./pages/Politicas.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import { getLenis, destroyLenis } from "./lib/lenis.ts";
 
@@ -35,6 +36,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/contato" element={<Contato />} />
+          <Route path="/politicas" element={<Politicas />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
