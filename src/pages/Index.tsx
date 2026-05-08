@@ -381,7 +381,12 @@ const Index = () => {
               fontSize: isMobile ? 24 : 36, fontWeight: 800,
               color: fg(1), lineHeight: 1.2,
             }}>
-              Energia solar para casas e empresas
+              <span style={{
+                background: "linear-gradient(90deg, #fff1a9 0%, #FDE96A 60%, #fff1a9 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}>Energia solar</span> para casas e empresas
             </h2>
           </div>
         </RevealOnScroll>
@@ -661,7 +666,14 @@ const Index = () => {
                   fontFamily: "'Encode Sans Expanded', sans-serif",
                   fontSize: isMobile ? 26 : 38, fontWeight: 800, color: fg(4), lineHeight: 1.15,
                 }}>
-                  <WordReveal text="Qualidade, eficiência e acompanhamento no pós-venda" style={{ color: fg(4) }} />
+                  <span style={{
+                    background: "linear-gradient(90deg, #fff1a9 0%, #FDE96A 60%, #fff1a9 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                    display: "inline",
+                  }}>Qualidade, eficiência e acompanhamento</span>
+                  <WordReveal text=" no pós-venda" style={{ color: fg(4) }} delay={0.1} />
                 </h2>
               </div>
               <p style={{ fontSize: 16, fontWeight: 300, color: fg(4), opacity: 0.5, lineHeight: 1.7 }}>
@@ -842,7 +854,14 @@ const Index = () => {
                 fontFamily: "'Encode Sans Expanded', sans-serif",
                 fontSize: isMobile ? 26 : 36, fontWeight: 800, color: fg(8), lineHeight: 1.2, marginBottom: 15,
               }}>
-                <WordReveal text="Tem dúvidas? Nós ajudamos." style={{ color: fg(8) }} />
+                <span style={{
+                  background: "linear-gradient(90deg, #fff1a9 0%, #FDE96A 60%, #fff1a9 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  display: "inline",
+                }}>Tem dúvidas?</span>
+                <WordReveal text=" Nós ajudamos" style={{ color: fg(8) }} delay={0.1} />
               </h2>
               <p style={{ fontSize: 16, fontWeight: 300, color: fg(8), opacity: 0.45, lineHeight: 1.7, marginBottom: 40 }}>
                 Se ainda tiver dúvidas, entre em contacto connosco diretamente. Respondemos a todas.
@@ -985,10 +1004,10 @@ const Index = () => {
             borderTop: `1px solid ${C.white}10`, paddingTop: 24,
             display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12,
           }}>
-            <p style={{ fontSize: 12, color: C.white, opacity: 0.18 }}>© 2026 Voltaic. Todos os direitos reservados.</p>
-            <a href="https://oneimpact.com.br/" target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: C.white, opacity: 0.18, textDecoration: "none" }}
-              onMouseEnter={e => (e.currentTarget.style.opacity = "0.5")}
-              onMouseLeave={e => (e.currentTarget.style.opacity = "0.18")}
+            <p style={{ fontSize: 13, color: C.white, opacity: 0.38 }}>© 2026 Voltaic. Todos os direitos reservados.</p>
+            <a href="https://oneimpact.com.br/" target="_blank" rel="noopener noreferrer" style={{ fontSize: 13, color: C.white, opacity: 0.38, textDecoration: "none" }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "0.7")}
+              onMouseLeave={e => (e.currentTarget.style.opacity = "0.38")}
             >Desenvolvido por Agência One Impact</a>
           </div>
         </div>
