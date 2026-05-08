@@ -13,6 +13,7 @@ import ShimmerButton from "@/components/ShimmerButton";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import CounterUp from "@/components/CounterUp";
 import { useMobileLayout } from "@/hooks/use-mobile-layout";
+import CookieBanner from "@/components/CookieBanner";
 
 const C = {
   white:       "#FAFAF8",
@@ -939,7 +940,7 @@ const Index = () => {
       </section>
 
       {/* ── RODAPÉ ── */}
-      <footer style={{ background: bg(9), padding: "64px 24px 32px" }}>
+      <footer style={{ background: bg(9), padding: isMobile ? "64px 24px 260px" : "64px 24px 32px" }}>
         <div className={inner}>
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-10" style={{ marginBottom: 48 }}>
             <div className="lg:col-span-2">
@@ -1013,6 +1014,7 @@ const Index = () => {
         </div>
       </footer>
 
+      <CookieBanner />
     </div>
   );
 };
