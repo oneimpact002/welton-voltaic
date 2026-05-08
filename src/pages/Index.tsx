@@ -358,7 +358,7 @@ const Index = () => {
               animationDelay: "0.8s", zIndex: 2,
             }}>
               <TrendingDown size={30} color={C.accent} style={{ marginBottom: 8 }} />
-              <p style={{ fontSize: 16, fontWeight: 600, color: C.white, lineHeight: 1.4, maxWidth: 180 }}>Redução real de custos operacionais</p>
+              <p style={{ fontSize: 16, fontWeight: 600, color: C.white, lineHeight: 1.4, maxWidth: 180 }}>Redução real de custos do dia a dia</p>
             </div>
 
             <div style={{
