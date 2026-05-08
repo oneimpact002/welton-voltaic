@@ -4,7 +4,7 @@ import { scrollTo } from "@/lib/scrollTo";
 import {
   ChevronDown, ChevronUp, ArrowRight,
   MessageCircle, Mail, XCircle,
-  Building2, Zap, TrendingDown, Clock,
+  Building2, Zap, TrendingDown, Clock, Home,
   ShieldCheck, Settings2, BarChart2,
   Sun, BatteryCharging, FileCheck,
 } from "lucide-react";
@@ -372,6 +372,21 @@ const Index = () => {
       <section style={{ background: bg(1), padding: "106px 24px 6px" }}>
 
         <RevealOnScroll>
+          <div className={inner} style={{ textAlign: "center", marginBottom: 56 }}>
+            <p style={{ fontSize: 11, letterSpacing: "0.2em", color: hi(1), textTransform: "uppercase", marginBottom: 12 }}>
+              Mais poupança, menos custos
+            </p>
+            <h2 style={{
+              fontFamily: "'Encode Sans Expanded', sans-serif",
+              fontSize: isMobile ? 24 : 36, fontWeight: 800,
+              color: fg(1), lineHeight: 1.2,
+            }}>
+              Energia solar para casas e empresas
+            </h2>
+          </div>
+        </RevealOnScroll>
+
+        <RevealOnScroll>
           <div className={inner}>
             {(() => {
               const cards = [
@@ -401,6 +416,18 @@ const Index = () => {
             })()}
           </div>
         </RevealOnScroll>
+
+        <RevealOnScroll>
+          <div className={inner} style={{ textAlign: "center", paddingTop: 48, paddingBottom: 16 }}>
+            <ShimmerButton
+              style={{ fontSize: 13, padding: "16px 36px", background: C.accent, color: C.black }}
+              onClick={() => window.open("https://tally.so/r/lbVBL5", "_blank")}
+            >
+              QUERO REDUZIR A MINHA FATURA
+            </ShimmerButton>
+          </div>
+        </RevealOnScroll>
+
       </section>
 
       {/* ── PROBLEMA ── */}
@@ -408,7 +435,7 @@ const Index = () => {
 
         <div className={`${inner} grid grid-cols-1 lg:grid-cols-2 gap-20 items-center`}>
           <RevealOnScroll delay={0}>
-            <div style={{ position: "relative" }}>
+            <div style={{ position: "relative", marginBottom: isMobile ? 40 : 0 }}>
               <div style={{ aspectRatio: "4/5", borderRadius: 8, overflow: "hidden" }}>
                 <img
                   src="/welton-voltaic-paineis-solares-06.jpg"
@@ -424,21 +451,21 @@ const Index = () => {
 
               {/* Tag flutuante — estatística */}
               <div className="tag-enter" style={{
-                position: "absolute", top: isMobile ? "55%" : 524, left: isMobile ? 12 : -76,
+                position: "absolute", top: isMobile ? "calc(55% + 150px)" : 524, left: isMobile ? 12 : -76,
                 backgroundColor: "#0f1a2e",
-                borderRadius: 10, padding: "16px 20px",
+                borderRadius: 10, padding: isMobile ? "10px 14px" : "16px 20px",
                 boxShadow: "0 8px 32px rgba(0,0,0,0.35)",
-                minWidth: 200,
+                minWidth: isMobile ? 150 : 200,
               }}>
-                <p style={{ fontSize: 23, fontWeight: 800, color: C.white, lineHeight: 1, fontFamily: "'Encode Sans Expanded', sans-serif", marginBottom: 4 }}>
+                <p style={{ fontSize: isMobile ? 16 : 23, fontWeight: 800, color: C.white, lineHeight: 1, fontFamily: "'Encode Sans Expanded', sans-serif", marginBottom: 4 }}>
                   Poupe até 90%
                 </p>
-                <p style={{ fontSize: 15, fontWeight: 300, color: C.white, opacity: 0.6, lineHeight: 1.4, marginBottom: 14 }}>
+                <p style={{ fontSize: isMobile ? 11 : 15, fontWeight: 300, color: C.white, opacity: 0.6, lineHeight: 1.4, marginBottom: isMobile ? 10 : 14 }}>
                   na redução da fatura
                 </p>
 
                 {/* Mini gráfico de barras */}
-                <svg width="100%" height="48" viewBox="0 0 160 48" preserveAspectRatio="none">
+                <svg width="100%" height={isMobile ? 32 : 48} viewBox="0 0 160 48" preserveAspectRatio="none">
                   {[
                     { x: 0,   h: 48 },
                     { x: 24,  h: 44 },
@@ -458,7 +485,7 @@ const Index = () => {
                     />
                   ))}
                 </svg>
-                <p style={{ fontSize: 10, color: C.white, opacity: 0.45, marginTop: 4, letterSpacing: "0.06em" }}>
+                <p style={{ fontSize: isMobile ? 8 : 10, color: C.white, opacity: 0.45, marginTop: 4, letterSpacing: "0.06em" }}>
                   aumento do custo de energia em períodos recentes
                 </p>
               </div>
@@ -472,10 +499,20 @@ const Index = () => {
               </p>
               <h2 style={{
                 fontFamily: "'Encode Sans Expanded', sans-serif",
-                fontSize: isMobile ? 26 : 38, fontWeight: 800, color: fg(2), lineHeight: 1.15, marginBottom: 30,
+                fontSize: isMobile ? 26 : 38, fontWeight: 800, color: fg(2), lineHeight: 1.15, marginBottom: 16,
               }}>
-                <WordReveal text="Uma forma mais eficiente de consumir energia" style={{ color: fg(2) }} />
+                <WordReveal text="Transforme o consumo de energia em " style={{ color: fg(2) }} delay={0.05} />
+                <span style={{
+                  background: "linear-gradient(90deg, #fff1a9 0%, #FDE96A 60%, #fff1a9 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  display: "inline",
+                }}>mais poupança</span>
               </h2>
+              <p style={{ fontSize: 16, fontWeight: 300, color: C.white, opacity: 0.55, lineHeight: 1.7, marginBottom: 24 }}>
+                Desenvolvemos soluções de energia solar para ajudar a reduzir custos e aumentar a eficiência energética no dia a dia.
+              </p>
               <ul style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 {[
                   "Faturas de energia reduzidas",
@@ -491,6 +528,15 @@ const Index = () => {
                   </li>
                 ))}
               </ul>
+
+              <div style={{ marginTop: 32 }}>
+                <ShimmerButton
+                  style={{ fontSize: 12, padding: "15px 30px", background: C.accent, color: C.black }}
+                  onClick={() => window.open("https://tally.so/r/lbVBL5", "_blank")}
+                >
+                  SOLICITAR CONTACTO
+                </ShimmerButton>
+              </div>
             </div>
           </RevealOnScroll>
         </div>
@@ -509,7 +555,15 @@ const Index = () => {
                 fontFamily: "'Encode Sans Expanded', sans-serif",
                 fontSize: isMobile ? 26 : 38, fontWeight: 800, color: fg(3), lineHeight: 1.15,
               }}>
-                <WordReveal text="É fácil obter a sua independência energética em pouco tempo" style={{ color: fg(3) }} />
+                <WordReveal text="É fácil obter a sua " style={{ color: fg(3) }} delay={0.05} />
+                <span style={{
+                  background: "linear-gradient(90deg, #fff1a9 0%, #FDE96A 60%, #fff1a9 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  display: "inline",
+                }}>independência energética</span>
+                <WordReveal text=" em pouco tempo" style={{ color: fg(3) }} delay={0.2} />
               </h2>
             </div>
           </RevealOnScroll>
@@ -561,15 +615,27 @@ const Index = () => {
         <RevealOnScroll>
           <div className={`${inner} flex flex-col items-center justify-center gap-8 text-center`}>
             <div>
-              <p style={{ fontSize: 11, letterSpacing: "0.2em", color: C.white, opacity: 0.5, textTransform: "uppercase", marginBottom: 10 }}>
+              <p style={{ fontSize: 11, letterSpacing: "0.2em", color: hi(5), textTransform: "uppercase", marginBottom: 10 }}>
                 Próximo passo
               </p>
               <h2 style={{
                 fontFamily: "'Encode Sans Expanded', sans-serif",
-                fontSize: isMobile ? 22 : 28, fontWeight: 800, color: C.white, lineHeight: 1.2,
+                fontSize: isMobile ? 28 : 38, fontWeight: 800, color: C.white, lineHeight: 1.3,
               }}>
-                Descubra quanto a sua empresa pode poupar.
+                <span style={{ display: "block" }}>
+                  Avalie o{" "}
+                  <span style={{
+                    background: "linear-gradient(90deg, #fff1a9 0%, #FDE96A 60%, #fff1a9 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}>potencial de poupança</span>
+                </span>
+                <span style={{ display: "block" }}>da sua casa ou empresa</span>
               </h2>
+              <p style={{ fontSize: 16, fontWeight: 300, color: C.white, opacity: 0.55, lineHeight: 1.7, marginTop: 16 }}>
+                Analisamos o seu consumo energético e apresentamos uma solução adaptada<br />para ajudar a reduzir os seus custos com eletricidade.
+              </p>
             </div>
             <ShimmerButton
               style={{ fontSize: 12, padding: "15px 32px", background: C.accent, color: C.black, flexShrink: 0 }}
@@ -608,9 +674,15 @@ const Index = () => {
             {[
               {
                 icon: <Building2 size={22} />,
-                title: "Foco Industrial",
+                title: "Soluções empresariais e industriais",
                 desc: "Especialistas em sistemas de grande escala para empresas com elevado consumo energético, ajudamos a diminuir a sua fatura e na redução de emissão de CO2.",
                 highlight: true,
+              },
+              {
+                icon: <Home size={22} />,
+                title: "Soluções residenciais",
+                desc: "Produza a sua própria energia e tenha mais controlo sobre seus gastos mensais. Instalação completa, acompanhamento técnico e sistemas pensados para gerar poupança e menor impacto ambiental.",
+                highlight: false,
               },
               {
                 icon: <TrendingDown size={22} />,
@@ -681,7 +753,14 @@ const Index = () => {
                 fontFamily: "'Encode Sans Expanded', sans-serif",
                 fontSize: isMobile ? 26 : 38, fontWeight: 800, color: fg(6), lineHeight: 1.15, marginBottom: 24,
               }}>
-                <WordReveal text="Especialistas em energia solar para a indústria" style={{ color: fg(6) }} />
+                <WordReveal text="Especialistas em soluções de " style={{ color: fg(6) }} delay={0.05} />
+                <span style={{
+                  background: "linear-gradient(90deg, #fff1a9 0%, #FDE96A 60%, #fff1a9 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                  display: "inline",
+                }}>energia solar para casas e empresas</span>
               </h2>
               <p style={{ fontSize: 16, fontWeight: 300, color: fg(6), opacity: 0.5, lineHeight: 1.75, marginBottom: 16 }}>
                 A Voltaic nasceu com um objetivo claro: ser a empresa que fornece energia solar industrial com critério técnico, segurança no investimento e compromisso real com os resultados do cliente.
@@ -720,17 +799,24 @@ const Index = () => {
 
         <RevealOnScroll>
           <div className={`${inner} text-center relative`} style={{ maxWidth: 680, marginLeft: "auto", marginRight: "auto" }}>
-            <p style={{ fontSize: 11, letterSpacing: "0.2em", color: "#fff", opacity: 0.65, textTransform: "uppercase", marginBottom: 20 }}>
+            <p style={{ fontSize: 11, letterSpacing: "0.2em", color: hi(8), textTransform: "uppercase", marginBottom: 20 }}>
               Próximo passo
             </p>
             <h2 style={{
               fontFamily: "'Encode Sans Expanded', sans-serif",
               fontSize: isMobile ? 28 : 40, fontWeight: 800, color: "#fff", lineHeight: 1.15, marginBottom: 20,
             }}>
-              <WordReveal text="Avalie agora quanto a sua empresa pode poupar na fatura de energia" style={{ color: "#fff" }} />
+              <WordReveal text="Avalie quanto pode " style={{ color: "#fff" }} delay={0.05} />
+              <span style={{
+                background: "linear-gradient(90deg, #fff1a9 0%, #FDE96A 60%, #fff1a9 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                display: "inline",
+              }}>poupar na sua fatura de eletricidade</span>
             </h2>
             <p style={{ fontSize: 17, fontWeight: 300, color: "#fff", opacity: 0.7, lineHeight: 1.7, marginBottom: 48 }}>
-              Solicite uma análise técnica e veja, com base no consumo da sua empresa, quanto poderá reduzir nos custos de energia.
+              Solicite uma análise técnica e descubra, com base no seu consumo, quanto pode reduzir nos custos com energia em casa ou na sua empresa.
             </p>
             <div className="flex items-center justify-center gap-5 flex-wrap">
               <ShimmerButton
@@ -900,6 +986,10 @@ const Index = () => {
             display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12,
           }}>
             <p style={{ fontSize: 12, color: C.white, opacity: 0.18 }}>© 2026 Voltaic. Todos os direitos reservados.</p>
+            <a href="https://oneimpact.com.br/" target="_blank" rel="noopener noreferrer" style={{ fontSize: 12, color: C.white, opacity: 0.18, textDecoration: "none" }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = "0.5")}
+              onMouseLeave={e => (e.currentTarget.style.opacity = "0.18")}
+            >Desenvolvido por Agência One Impact</a>
           </div>
         </div>
       </footer>
