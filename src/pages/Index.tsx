@@ -167,7 +167,7 @@ const Index = () => {
           <ShimmerButton
             className="hidden md:inline-flex"
             style={{ background: C.accent, color: C.black }}
-            onClick={() => window.open("https://tally.so/r/lbVBL5", "_blank")}
+            onClick={() => { window.location.href = "tel:+351913957960"; }}
           >
             SOLICITAR ANÁLISE
           </ShimmerButton>
@@ -227,7 +227,7 @@ const Index = () => {
             ))}
             <ShimmerButton
               style={{ background: C.accent, color: C.black, alignSelf: "flex-start" }}
-              onClick={() => { setMenuOpen(false); window.open("https://tally.so/r/lbVBL5", "_blank"); }}
+              onClick={() => { setMenuOpen(false); window.location.href = "tel:+351913957960"; }}
             >
               SOLICITAR ANÁLISE
             </ShimmerButton>
@@ -292,7 +292,7 @@ const Index = () => {
               <ShimmerButton
                 className="btn-hero-hover"
                 style={{ fontSize: 12, padding: "15px 30px", background: C.accent, color: C.black }}
-                onClick={() => window.open("https://tally.so/r/lbVBL5", "_blank")}
+                onClick={() => { window.location.href = "tel:+351913957960"; }}
               >
                 SOLICITAR ANÁLISE GRATUITA
               </ShimmerButton>
@@ -427,7 +427,7 @@ const Index = () => {
           <div className={inner} style={{ textAlign: "center", paddingTop: 48, paddingBottom: 16 }}>
             <ShimmerButton
               style={{ fontSize: 13, padding: "16px 36px", background: C.accent, color: C.black }}
-              onClick={() => window.open("https://tally.so/r/lbVBL5", "_blank")}
+              onClick={() => { window.location.href = "tel:+351913957960"; }}
             >
               QUERO REDUZIR A MINHA FATURA
             </ShimmerButton>
@@ -538,7 +538,7 @@ const Index = () => {
               <div style={{ marginTop: 32 }}>
                 <ShimmerButton
                   style={{ fontSize: 12, padding: "15px 30px", background: C.accent, color: C.black }}
-                  onClick={() => window.open("https://tally.so/r/lbVBL5", "_blank")}
+                  onClick={() => { window.location.href = "tel:+351913957960"; }}
                 >
                   SOLICITAR CONTACTO
                 </ShimmerButton>
@@ -645,7 +645,7 @@ const Index = () => {
             </div>
             <ShimmerButton
               style={{ fontSize: 12, padding: "15px 32px", background: C.accent, color: C.black, flexShrink: 0 }}
-              onClick={() => window.open("https://tally.so/r/lbVBL5", "_blank")}
+              onClick={() => { window.location.href = "tel:+351913957960"; }}
             >
               SOLICITAR ANÁLISE GRATUITA
             </ShimmerButton>
@@ -834,7 +834,7 @@ const Index = () => {
             <div className="flex items-center justify-center gap-5 flex-wrap">
               <ShimmerButton
                 style={{ fontSize: 12, padding: "15px 30px", background: C.accent, color: C.black }}
-                onClick={() => window.open("https://tally.so/r/lbVBL5", "_blank")}
+                onClick={() => { window.location.href = "tel:+351913957960"; }}
               >
                 SOLICITAR ANÁLISE GRATUITA
               </ShimmerButton>
@@ -930,7 +930,7 @@ const Index = () => {
               </p>
               <ShimmerButton
                 style={{ fontSize: 12, padding: "15px 32px", background: C.black, color: C.white, position: "relative" }}
-                onClick={() => window.open("https://tally.so/r/lbVBL5", "_blank")}
+                onClick={() => { window.location.href = "tel:+351913957960"; }}
               >
                 FAZER UMA INDICAÇÃO
               </ShimmerButton>
