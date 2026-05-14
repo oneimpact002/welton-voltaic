@@ -986,16 +986,19 @@ const Index = () => {
                 Contato
               </p>
               <ul style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                {["info@originalvoltaic.com", "913 957 960"].map((l) => (
-                  <li key={l}>
-                    <a href={l.includes("@") ? `mailto:${l}` : "https://wa.me/351913957960"}
-                      target={l.includes("@") ? undefined : "_blank"}
+                {[
+                  { label: "info@originalvoltaic.com", href: "mailto:info@originalvoltaic.com", icon: <Mail size={14} style={{ flexShrink: 0 }} /> },
+                  { label: "913 957 960", href: "https://wa.me/351913957960", icon: <MessageCircle size={14} style={{ flexShrink: 0 }} /> },
+                ].map(({ label, href, icon }) => (
+                  <li key={label}>
+                    <a href={href}
+                      target={href.startsWith("http") ? "_blank" : undefined}
                       rel="noopener noreferrer"
-                      style={{ fontSize: 14, color: C.white, opacity: 0.35, textDecoration: "none" }}
+                      style={{ fontSize: 14, color: C.white, opacity: 0.35, textDecoration: "none", display: "flex", alignItems: "center", gap: 8 }}
                       onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
                       onMouseLeave={e => (e.currentTarget.style.opacity = "0.35")}
                     >
-                      {l}
+                      {icon}{label}
                     </a>
                   </li>
                 ))}
