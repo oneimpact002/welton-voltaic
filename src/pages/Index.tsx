@@ -304,7 +304,7 @@ const Index = () => {
             <div style={{ width: "100%", aspectRatio: "5/7", borderRadius: 8, overflow: "hidden" }}>
               <img
                 src="/hero-paineis.jpg"
-                alt="Painéis solares Voltaic"
+                alt="Instalação de painéis solares para residências em Portugal"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </div>
@@ -332,7 +332,7 @@ const Index = () => {
             <div style={{ aspectRatio: "4/5", borderRadius: 8, overflow: "hidden" }}>
               <img
                 src="/hero-paineis.jpg"
-                alt="Painéis solares Voltaic"
+                alt="Instalação de painéis solares para residências em Portugal"
                 style={{ width: "100%", height: "100%", objectFit: "cover" }}
               />
             </div>
@@ -445,7 +445,7 @@ const Index = () => {
               <div style={{ aspectRatio: "4/5", borderRadius: 8, overflow: "hidden" }}>
                 <img
                   src="/welton-voltaic-paineis-solares-06.jpg"
-                  alt="Painéis solares industriais Voltaic"
+                  alt="Painéis solares industriais para empresas em Portugal"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </div>
@@ -746,7 +746,7 @@ const Index = () => {
               <div style={{ height: isMobile ? "auto" : 650, aspectRatio: isMobile ? "4/5" : "auto", borderRadius: 8, overflow: "hidden" }}>
                 <img
                   src="/paineis-solares-04.jpg"
-                  alt="Voltaic instalação solar"
+                  alt="Sistema de energia solar residencial e empresarial em Portugal"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </div>
