@@ -446,6 +446,7 @@ const Index = () => {
                 <img
                   src="/welton-voltaic-paineis-solares-06.jpg"
                   alt="Painéis solares industriais para empresas em Portugal"
+                  loading="lazy"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </div>
@@ -747,6 +748,7 @@ const Index = () => {
                 <img
                   src="/paineis-solares-04.jpg"
                   alt="Sistema de energia solar residencial e empresarial em Portugal"
+                  loading="lazy"
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
               </div>
